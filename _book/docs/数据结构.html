@@ -1,0 +1,447 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>数据结构 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Way_to_Hangzhou.html" />
+    
+    
+    <link rel="prev" href="Hencoder_Plus.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Java_Question_List.html">
+            
+                <a href="Java_Question_List.html">
+            
+                    
+                    Java FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Android_Question_List.html">
+            
+                <a href="Android_Question_List.html">
+            
+                    
+                    Android FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Kotlin_Question_List.html">
+            
+                <a href="Kotlin_Question_List.html">
+            
+                    
+                    Kotlin FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Other_Question_List.html">
+            
+                <a href="Other_Question_List.html">
+            
+                    
+                    Other FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="Hencoder_Plus.html">
+            
+                <a href="Hencoder_Plus.html">
+            
+                    
+                    Hencoder Plus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="数据结构.html">
+            
+                <a href="数据结构.html">
+            
+                    
+                    数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="Way_to_Hangzhou.html">
+            
+                <a href="Way_to_Hangzhou.html">
+            
+                    
+                    Way to Hangzhou
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >数据结构</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6570;&#x636E;&#x7ED3;&#x6784;">&#x6570;&#x636E;&#x7ED3;&#x6784;</h1>
+<blockquote>
+<p>1&#x3001;&#x6808; Stack 
+2&#x3001;&#x961F;&#x5217; Queue 
+3&#x3001;&#x94FE;&#x8868; Linked List 
+4&#x3001;&#x6570;&#x7EC4; Array 
+5&#x3001;&#x54C8;&#x5E0C;&#x8868; Hash Table 
+6&#x3001;&#x4E8C;&#x53C9;&#x6811; Binary Tree 
+7&#x3001;&#x5806; Heap 
+8&#x3001;&#x5E76;&#x67E5;&#x96C6; Union Find 
+9&#x3001;&#x5B57;&#x5178;&#x6811; Trie</p>
+</blockquote>
+<h1 id="&#x7B97;&#x6CD5;">&#x7B97;&#x6CD5;</h1>
+<blockquote>
+<p>1&#x3001;&#x4E8C;&#x5206;&#x641C;&#x7D22; Binary Search 
+2&#x3001;&#x5206;&#x6CBB; Divide Conquer 
+3&#x3001;&#x5BBD;&#x5EA6;&#x4F18;&#x5148;&#x641C;&#x7D22; Breadth First Search 
+4&#x3001;&#x6DF1;&#x5EA6;&#x4F18;&#x5148;&#x641C;&#x7D22; Depth First Search 
+5&#x3001;&#x56DE;&#x6EAF;&#x6CD5; Backtracking 
+6&#x3001;&#x53CC;&#x6307;&#x9488; Two Pointers 
+7&#x3001;&#x52A8;&#x6001;&#x89C4;&#x5212; Dynamic Programming 
+8&#x3001;&#x626B;&#x63CF;&#x7EBF; Scan-line algorithm 
+9&#x3001;&#x5FEB;&#x6392; Quick Sort</p>
+</blockquote>
+<h1 id="&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;">&#x8BA1;&#x7B97;&#x673A;&#x7F51;&#x7EDC;</h1>
+<blockquote>
+<p>1&#x3001;&#x7B80;&#x8FF0;TCP/IP&#x4F53;&#x7CFB;&#xFF1F; 
+2&#x3001;TCP&#x4E0E;UDP&#x533A;&#x522B;&#x4E0E;&#x5E94;&#x7528;&#xFF1F; 
+3&#x3001;GET&#xFF0C;POST&#x533A;&#x522B;&#xFF08;&#x8BA1;&#x7B97;&#x673A;&#x5E95;&#x5C42;&#x5B9E;&#x73B0;&#x7684;&#x533A;&#x522B;&#xFF09;&#xFF1F; 
+4&#x3001;Https &#x7406;&#x8BBA;&#x57FA;&#x7840;&#x53CA;Https&#x5728;Android&#x4E2D;&#x7684;&#x5E94;&#x7528;&#xFF08;<a href="http://android.jobbole.com/83787/" target="_blank">HTTPS &#x7406;&#x8BBA;&#x57FA;&#x7840;&#x53CA;&#x5176;&#x5728; Android &#x4E2D;&#x7684;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;</a> &#xFF0C; <a href="http://www.cnblogs.com/P_Chou/archive/2010/12/27/https-ssl-certification.html" target="_blank">&#x6D45;&#x8C08;https\ssl\&#x6570;&#x5B57;&#x8BC1;&#x4E66;</a>&#xFF09;</p>
+</blockquote>
+<h1 id="&#x516D;&#x5927;&#x539F;&#x5219;&#x548C;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;">&#x516D;&#x5927;&#x539F;&#x5219;&#x548C;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;</h1>
+<blockquote>
+<p>1&#x3001;&#x5355;&#x4E00;&#x804C;&#x8D23;&#x539F;&#x5219; 
+2&#x3001;&#x5F00;&#x95ED;&#x539F;&#x5219; 
+3&#x3001;&#x91CC;&#x6C0F;&#x66FF;&#x6362;&#x539F;&#x5219; 
+4&#x3001;&#x4F9D;&#x8D56;&#x5012;&#x7F6E;&#x539F;&#x5219; 
+5&#x3001;&#x63A5;&#x53E3;&#x9694;&#x79BB;&#x539F;&#x5219; 
+6&#x3001;&#x8FEA;&#x7C73;&#x7279;&#x539F;&#x5219;</p>
+<hr>
+<p>1&#x3001;&#x5355;&#x4F8B;&#x6A21;&#x5F0F; 
+2&#x3001;Builder&#x6A21;&#x5F0F; 
+3&#x3001;&#x539F;&#x578B;&#x6A21;&#x5F0F; 
+4&#x3001;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F; 
+5&#x3001;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F; 
+6&#x3001;&#x7B56;&#x7565;&#x6A21;&#x5F0F; 
+7&#x3001;&#x72B6;&#x6001;&#x6A21;&#x5F0F; 
+8&#x3001;&#x8D23;&#x4EFB;&#x94FE;&#x6A21;&#x5F0F; 
+9&#x3001;&#x89E3;&#x91CA;&#x5668;&#x6A21;&#x5F0F; 
+10&#x3001;&#x547D;&#x4EE4;&#x6A21;&#x5F0F; 
+11&#x3001;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F; 
+12&#x3001;&#x5907;&#x5FD8;&#x5F55;&#x6A21;&#x5F0F; 
+13&#x3001;&#x8FED;&#x4EE3;&#x5668;&#x6A21;&#x5F0F; 
+14&#x3001;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F; 
+15&#x3001;&#x8BBF;&#x95EE;&#x8005;&#x6A21;&#x5F0F; 
+16&#x3001;&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F; 
+17&#x3001;&#x4EE3;&#x7406;&#x6A21;&#x5F0F; 
+18&#x3001;&#x7EC4;&#x5408;&#x6A21;&#x5F0F; 
+19&#x3001;&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F; 
+20&#x3001;&#x88C5;&#x9970;&#x6F06;&#x5668;&#x6A21;&#x5F0F; 
+21&#x3001;&#x4EAB;&#x5143;&#x6A21;&#x5F0F; 
+22&#x3001;&#x5916;&#x89C2;&#x6A21;&#x5F0F; 
+23&#x3001;&#x6865;&#x63A5;&#x6A21;&#x5F0F; 
+24&#x3001;MVC&#x3001;MVP&#x3001;MVVM &#x6A21;&#x5F0F;</p>
+</blockquote>
+<h1 id="java&#x77E5;&#x8BC6;">Java&#x77E5;&#x8BC6;</h1>
+<blockquote>
+<p>1&#x3001;String&#x3001;StringBuffer&#x3001;StringBuilder &#x7684;&#x533A;&#x522B;&#xFF1F;String&#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#xFF1F; 
+2&#x3001;ArrayList&#x3001;LinkedList&#x7684;&#x539F;&#x7406;&#x548C;&#x533A;&#x522B;&#xFF1F; 
+3&#x3001;HashTable&#x3001;HashMap&#x3001;TreeMap&#x539F;&#x7406;&#x548C;&#x533A;&#x522B;&#xFF1F; 
+5&#x3001;&#x5E38;&#x89C1;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#xFF1F;utf-8&#x7F16;&#x7801;&#x4E2D;&#x7684;&#x4E2D;&#x6587;&#x5360;&#x51E0;&#x4E2A;&#x5B57;&#x8282;&#xFF1F;int&#x578B;&#x51E0;&#x4E2A;&#x5B57;&#x8282;&#xFF1F; 
+6&#x3001;JVM(Java&#x865A;&#x62DF;&#x673A;) 
+7&#x3001;ThreadLocal &#x539F;&#x7406; 
+8&#x3001;synchronize&#x548C;volatile &#xFF08;<a href="https://zhuanlan.zhihu.com/p/30806472" target="_blank">Java&#x5E76;&#x53D1;&#x7F16;&#x7A0B;&#xFF1A;volatile&#x5173;&#x952E;&#x5B57;&#x89E3;&#x6790;</a>&#xFF09; 
+9&#x3001;&#x7EBF;&#x7A0B;&#x53CA;&#x7EBF;&#x7A0B;&#x6C60;</p>
+</blockquote>
+<h1 id="android&#x77E5;&#x8BC6;">Android&#x77E5;&#x8BC6;</h1>
+<h2 id="&#x7CFB;&#x7EDF;&#x76F8;&#x5173;">&#x7CFB;&#x7EDF;&#x76F8;&#x5173;</h2>
+<blockquote>
+<p>1&#x3001;Android&#x7CFB;&#x7EDF;&#x542F;&#x52A8;&#x6D41;&#x7A0B; &#xFF1F; 
+2&#x3001;Jvm&#x3001;Art &#x548C; Dalvik&#x5BF9;&#x6BD4;&#xFF1F; 
+3&#x3001;&#x70B9;&#x51FB; Android Studio &#x7684; build &#x6309;&#x94AE;&#x540E;&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F; 
+4&#x3001;Android&#x5E94;&#x7528;&#x5B89;&#x88C5;&#x5230;&#x624B;&#x673A;&#x4E0A;&#x65F6;&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F; 
+5&#x3001;Android&#x5E94;&#x7528;&#x542F;&#x52A8;&#x6D41;&#x7A0B;&#xFF1F; 
+6&#x3001;Android&#x8FDB;&#x7A0B;&#x548C; Application &#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x53CA;&#x4FDD;&#x6D3B;&#x65B9;&#x6848;&#xFF1F; 
+7&#x3001;Android&#x7684; Inter-Process-Communication &#xFF08;IPC&#xFF09;&#x8DE8;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;&#xFF1F; 
+8&#x3001;Binder &#x673A;&#x5236;&#xFF1F; 
+9&#x3001;Handler &#x673A;&#x5236;&#xFF1F; 
+10&#x3001;Activity&#x3001;Service&#x3001;Fragment&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x548C;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#xFF1F; 
+11&#x3001;SP&#x662F;&#x8FDB;&#x7A0B;&#x540C;&#x6B65;&#x7684;&#x5417;?&#x6709;&#x4EC0;&#x4E48;&#x65B9;&#x6CD5;&#x505A;&#x5230;&#x540C;&#x6B65;&#xFF1B; 
+12&#x3001;SpareArray&#x539F;&#x7406;&#xFF1F;</p>
+</blockquote>
+<h2 id="&#x67B6;&#x6784;&#x76F8;&#x5173;">&#x67B6;&#x6784;&#x76F8;&#x5173;</h2>
+<blockquote>
+<p>1&#x3001;&#x7EC4;&#x4EF6;&#x5316; 
+2&#x3001;&#x63D2;&#x4EF6;&#x5316; 
+3&#x3001;&#x70ED;&#x4FEE;&#x590D; 
+4&#x3001;&#x6362;&#x80A4;&#x539F;&#x7406;</p>
+</blockquote>
+<h2 id="view&#x76F8;&#x5173;">View&#x76F8;&#x5173;</h2>
+<blockquote>
+<p>1&#x3001;View&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#xFF1F; 
+2&#x3001;View&#x7684;&#x4E8B;&#x4EF6;&#x4F53;&#x7CFB;&#xFF1F; 
+3&#x3001;SurfaceView&#x548C;TextureView&#x7684;&#x533A;&#x522B;&#xFF1F;</p>
+</blockquote>
+<h2 id="&#x56FE;&#x7247;&#x52A0;&#x8F7D;&#x76F8;&#x5173;">&#x56FE;&#x7247;&#x52A0;&#x8F7D;&#x76F8;&#x5173;</h2>
+<blockquote>
+<p>1&#x3001;Bitmap&#x7684;&#x52A0;&#x8F7D;&#x539F;&#x7406;&#xFF1F; 
+2&#x3001;Android&#x4E2D;&#x7684;&#x7F13;&#x5B58;&#x7B56;&#x7565;&#xFF1F; 
+2&#x3001;LruCache &#x5E95;&#x5C42;&#x539F;&#x7406;&#xFF1F;</p>
+</blockquote>
+<h2 id="&#x4F18;&#x5316;&#x76F8;&#x5173;">&#x4F18;&#x5316;&#x76F8;&#x5173;</h2>
+<blockquote>
+<p>1&#x3001;&#x5185;&#x5B58;&#x56DE;&#x6536;&#x673A;&#x5236;&#x4E0E;GC&#x7B97;&#x6CD5;(&#x5404;&#x79CD;&#x7B97;&#x6CD5;&#x7684;&#x4F18;&#x7F3A;&#x70B9;&#x4EE5;&#x53CA;&#x5E94;&#x7528;&#x573A;&#x666F;)&#xFF1B; 
+2&#x3001;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x573A;&#x666F;&#x53CA;&#x907F;&#x514D;&#x548C;&#x89E3;&#x51B3;&#x65B9;&#x6CD5; 
+3&#x3001;Android&#x6027;&#x80FD;&#x4F18;&#x5316; 
+4&#x3001;Android&#x7F51;&#x7EDC;&#x4F18;&#x5316;</p>
+</blockquote>
+<h2 id="&#x5F00;&#x6E90;&#x5E93;">&#x5F00;&#x6E90;&#x5E93;</h2>
+<blockquote>
+<p>1&#x3001;Glide&#x6E90;&#x7801;&#x89E3;&#x6790; 
+2&#x3001;Okhttp&#x6E90;&#x7801;&#x89E3;&#x6790;</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Hencoder_Plus.html" class="navigation navigation-prev " aria-label="Previous page: Hencoder Plus">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Way_to_Hangzhou.html" class="navigation navigation-next " aria-label="Next page: Way to Hangzhou">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"数据结构","level":"1.7","depth":1,"next":{"title":"Way to Hangzhou","level":"1.8","depth":1,"path":"docs/Way_to_Hangzhou.md","ref":"docs/Way_to_Hangzhou.md","articles":[]},"previous":{"title":"Hencoder Plus","level":"1.6","depth":1,"path":"docs/Hencoder_Plus.md","ref":"docs/Hencoder_Plus.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/数据结构.md","mtime":"2018-06-10T08:09:41.589Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-14T12:31:37.182Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
