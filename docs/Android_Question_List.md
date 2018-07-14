@@ -4,13 +4,13 @@
 
 ### 1.Activity生命周期
 
-* 正常情况下的生命周期![activity_lifecycle](img/activity_lifecycle.png)
+* 正常情况下的生命周期![activity_lifecycle](../img/activity_lifecycle.png)
 * 复用Activity情况下的生命周期
 * Activity异常销毁时的生命周期
 
 系统会先调用 `onSaveInstanceState()`，然后再使 Activity 变得易于销毁。系统会向该方法传递一个 `Bundle`，您可以在其中使用 `putString()` 和 `putInt()` 等方法以名称-值对形式保存有关 Activity 状态的信息。然后，如果系统终止您的应用进程，并且用户返回您的 Activity，则系统会重建该 Activity，并将 `Bundle` 同时传递给 `onCreate()` 和 `onRestoreInstanceState()`。您可以使用上述任一方法从 `Bundle` 提取您保存的状态并恢复该 Activity 状态。如果没有状态信息需要恢复，则传递给您的 `Bundle` 是空值（如果是首次创建该 Activity，就会出现这种情况）。
 
- ![restore_instance](img/restore_instance.png)
+ ![restore_instance](../img/restore_instance.png)
 
 * onNewIntent，在Activity启动模式为SingleTop/SingleTask/SingleInstance时，复用Activity时，会调用onNewIntent方法
 

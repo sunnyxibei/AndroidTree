@@ -77,7 +77,7 @@ JVM运行时数据区的划分：
 * Method Area 方法区 存储已经被虚拟机加载的类信息/常量/静态变量
 * Program Counter Register 程序计数器
 
-![Runtime Data](img/RuntimeData.png)
+![Runtime Data](../img/RuntimeData.png)
 
 ### 12.GC垃圾回收
 
@@ -147,7 +147,7 @@ CAS 操作包含三个操作数 —— **内存位置（V）、预期原值（A�
 
 ### 15.JMM（Java Memory Model）Java内存模型
 
-![img](img/JMM.png)
+![img](../img/JMM.png)
 
 Java内存模型规定了所有的变量都存储在主内存（Main Memory）中
 每条线程都有自己的工作内存（Working Memory），线程的工作内存中保存了被该线程使用到的变量的主内存副本拷贝，线程对变量的所有操作（读取/赋值等）都必须在工作内存中进行，而不能直接读写主内存中的变量。线程间变量值的传递，均需要通过主内存来完成。
