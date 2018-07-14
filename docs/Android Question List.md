@@ -1,33 +1,45 @@
-## Android开发艺术探索 读书笔记
+## Android Question List
 
->这本书在手中已经将近两年的时间，之前一直把它当作工具书，有问题的时候查阅一下，最近要准备面试，把书重新找出来，从头开始，把知识点再梳理一遍，温故知新。
+> 基础
 
-### Activity 的基础知识
+### 1.Activity生命周期
 
-1. Activity复用时，回调onNewIntent
-2. Activity异常销毁时回调onSaveInstanceState，重建时回调onRestoreInstanceState，可以在onRestoreInstanceState或者onCreate的重载方法中获取销毁前保存的信息
+* 正常情况下的生命周期
+* 复用Activity情况下的生命周期
+* Activity异常销毁时的生命周期
+
+* onNewIntent，在Activity启动模式为SingleTop/SingleTask/SingleInstance时，复用Activity时，会调用onNewIntent方法
+
+### 2.Activity启动模式（LaunchMode）
+
+### 3.Handler 、MessageQueue 、Looper三者的关系和原理；
+
+### AsyncTask 、HanlderThread 、IntentService 的原理和使用场景；
 
 ### IPC通信机制
 
 1. Android进程间通信（IPC）的实现方式：Bundle，文件共享，AIDL，Messenger，ContentProvider，Socket，BroadCastReceiver
 2. Android进程间通信（IPC）的机制：Binder Parcelable（此处不在叙述Serializable）Parcelable接口在完成数据的序列化过程之后，通过Binder进行传输。实质上Parcelable包含序列化和反序列化
 
-* 那么问题还是来了，为啥需要多进程？如何实现多进程？
-
-  * 为啥要多进程？
-
+- 那么问题还是来了，为啥需要多进程？如何实现多进程？
+  - 为啥要多进程？
     1. Android对单个应用所使用的最大内存做了限制。
     2. 在不同的应用之间共享数 据。
-* 如何实现多进程？Manifest清单文件中声明process属性
-* WebView开发的时候为啥一般会指定独立进程？ 
-  * WebView导致的OOM问题
-  * Android版本不同，采用了不同的内核，兼容性Crash
-  * WebView代码质量，WebView和Native版本不一致，导致Crash
-* 最近两年的开发没有使用到AIDL和Binder，知识点记住，面试要能答上来，具体细节可以在使用的时候查询。  
+- 如何实现多进程？Manifest清单文件中声明process属性
+- WebView开发的时候为啥一般会指定独立进程？ 
+  - WebView导致的OOM问题
+  - Android版本不同，采用了不同的内核，兼容性Crash
+  - WebView代码质量，WebView和Native版本不一致，导致Crash
+- 最近两年的开发没有使用到AIDL和Binder，知识点记住，面试要能答上来，具体细节可以在使用的时候查询。  
+
+### 
+
+> View
 
 ### Android View体系
 
 1. View的工作原理
+
    1. onDraw主体绘制
 
 2. 事件分发机制
@@ -51,13 +63,57 @@
 3. 动画（主要是属性动画）这块的内容从hencoder网站及笔记复习
 
 4. 自定义View/ViewGroup实现
+
    1. 自定义View已经基本掌握（精通），自定义ViewGroup的关键在于精通onMeasure中关于测量的方法和MeasureSpec的三种不同的模式，onLayout只是简单地把子View布置到该放置的地方，因此onMeasure是自定义ViewGroup的精髓所在。
    2. 要精准地理解View绘制的流程/方法/概念。
 
-### 开源框架
+### RecyclerView 和 ListView 的相同和不同点，在 item 回收上有什么不同；
 
-1. OKHttp 责任链模式
-2. Glide 图片加载的三级缓存机制
-3. RxJava
+View 事件分发机制；
 
-### Kotlin
+### 3.Window View Activity三者的关系，追问Acitivty如何和Window关联
+
+Android Framework层有没有了解过，说说 Window 窗口添加的过程；
+
+### 6.自定义View的具体过程
+
+### 7.onMeasure的具体过程，先measure子view还是自己
+
+### 8.onDraw的具体过程，先draw子view还是自己
+
+
+
+> 热点技术
+
+### .热修复
+
+### 10.模块化
+
+### 11.组件化的原理，还有一些组件化平时使用的问题；
+
+消息推送有没有做过，推送到达率的问题
+
+> 架构
+
+说说 apk 打包流程以及多渠道打包；
+
+### MVC MVP MVVM的理解
+
+### 应用程序崩溃统计以及数据分析
+
+
+
+
+
+## 开源框架
+
+### 1. OKHttp 责任链模式
+### 2. Glide 图片加载的三级缓存机制 以及 Bitmap 优化
+### 3. RxJava flatMap和Map的作用
+
+### 4. Retrofit
+
+### 5.什么是依赖注入？能说几个依赖注入的库么？你使用过哪些？
+
+
+
