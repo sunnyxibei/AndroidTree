@@ -45,17 +45,13 @@ IntentService，自带HanderThread的轻量级服务，在handleMessage中处理
   - 为啥要多进程？
     1. Android对单个应用所使用的最大内存做了限制。
     2. 在不同的应用之间共享数 据。
-
 - 如何实现多进程？Manifest清单文件中声明process属性
-
 - WebView开发的时候为啥一般会指定独立进程？ 
   - WebView导致的OOM问题
   - Android版本不同，采用了不同的内核，兼容性Crash
   - WebView代码质量，WebView和Native版本不一致，导致Crash
-
 - 最近两年的开发没有使用到AIDL和Binder，知识点记住，面试要能答上来，具体细节可以在使用的时候查询。   
-
-  
+- 详见“跟面试官讲Binder系列”
 
 > Android View体系
 
@@ -129,24 +125,42 @@ onDraw在整个绘制流程中，是用于绘制主体的方法，对于ViewGrou
 2. 父View想要事件，直接在onInterceptTouchEvent中返回true进行拦截。此时，父View对给子View分发一个action.CANCEL的事件，通知子View恢复状态。
 3. 子View不想要父View拦截，调用requestDisallowInterceptTouchEvent()方法，请求父View不要拦截，该方法只对本地事件有效。
 
-### 7. 动画（主要是属性动画）
+### 7.Android Framework层有没有了解过，说说 Window 窗口添加的过程
+
+https://www.jianshu.com/p/049df709ddbf
+
+每一个Activity组件都有一个关联的Window对象，用来描述一个应用程序窗口。每一个应用程序窗口内部又包含有一个View对象，用来描述应用程序窗口的视图。上文分析了创建DecorView的过程，现在则要把DecorView添加到Window对象中。而要了解这个过程，我们首先要简单先了解一下Activity的创建过程：
+ 首先，在ActivityThread#handleLaunchActivity中启动Activity，在这里面会调用到Activity#onCreate方法，从而完成上面所述的DecorView创建动作，当onCreate()方法执行完毕，在handleLaunchActivity方法会继续调用到ActivityThread#handleResumeActivity方法，
+
+先看①号代码处，实例化了ViewRootImpl类，接着，在②号代码处，调用ViewRootImpl#setView方法，并把DecorView作为参数传递进去，在这个方法内部，会通过跨进程的方式向WMS（WindowManagerService）发起一个调用，从而将DecorView最终添加到Window上，在这个过程中，ViewRootImpl、DecorView和WMS会彼此关联，至于详细过程这里不展开来说了。
+ 最后通过WMS调用ViewRootImpl#performTraverals方法开始View的测量、布局、绘制流程
+
+### 8. 动画（主要是属性动画）
+
 这块的内容从hencoder网站及笔记复习
 
-### 8.RecyclerView 和 ListView 的相同和不同点，在 item 回收上有什么不同
+### 9.RecyclerView 和 ListView 的相同和不同点，在 item 回收上有什么不同
 
-### 9.Android Framework层有没有了解过，说说 Window 窗口添加的过程
+* RecyclerView支持三种布局方式，更加灵活
+  1. LinearLayoutManager，可以支持水平和竖直方向上滚动的列表。
+  2. StaggeredGridLayoutManager，可以支持交叉网格风格的列表，类似于瀑布流或者Pinterest。
+  3. GridLayoutManager，支持网格展示，可以水平或者竖直滚动，如展示图片的画廊。
+* 实现item动画更方便，RecyclerView.ItemAnimator则被提供用于在RecyclerView添加、删除或移动item时处理动画效果
+* RecyclerView.ItemDecoration可以更个性化地实现分割线
 
-*  WindowManagerService
+https://www.aliyun.com/jiaocheng/47916.html 
 
-  
+https://blog.csdn.net/qq_23012315/article/details/50807224
 
 > 热点技术
 
 ### 1.热修复
 
-### 2.模块化/组件化的原理，还有一些组件化平时使用的问题
+https://www.jianshu.com/p/704cac3eb13d
 
-### 3.插件化
+### 2.插件化
+
+### 3.模块化/组件化的原理，还有一些组件化平时使用的问题
 
 ### 4.消息推送有没有做过，推送到达率的问题
 
