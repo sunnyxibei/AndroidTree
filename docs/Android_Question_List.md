@@ -22,13 +22,21 @@ onNewIntent，在Activity启动模式为SingleTop/SingleTask时，复用Activity
 
 ### 4.ActivityManagerService
 
-### 5.WindowManagerService
+### 5.6.Handler 、MessageQueue 、Looper三者的关系和原理
 
-### 6.Handler 、MessageQueue 、Looper三者的关系和原理
+![Hadler机制图解](../img/handler.png)
 
-### 7.AsyncTask 、HanlderThread 、IntentService 的原理和使用场景
+### 6.AsyncTask 、HanlderThread 、IntentService 的原理和使用场景
 
-### 8.IPC通信机制
+AsyncTask这个API已经废弃好多年不用了
+
+顾名思义，HandlerThread就是一个自带Looper的Thread
+
+IntentService，自带HanderThread的轻量级服务，在handleMessage中处理逻辑，handleMessage处理完成后自己会调用stopSelf结束服务。
+
+使用场景的话，自从有了RxJava，我是真没想到AsyncTask有啥使用场景了。
+
+### 7.IPC通信机制
 
 1. Android进程间通信（IPC）的实现方式：Bundle，文件共享，AIDL，Messenger，ContentProvider，Socket，BroadCastReceiver
 2. Android进程间通信（IPC）的机制：Binder Parcelable（此处不在叙述Serializable）Parcelable接口在完成数据的序列化过程之后，通过Binder进行传输。实质上Parcelable包含序列化和反序列化
@@ -37,14 +45,17 @@ onNewIntent，在Activity启动模式为SingleTop/SingleTask时，复用Activity
   - 为啥要多进程？
     1. Android对单个应用所使用的最大内存做了限制。
     2. 在不同的应用之间共享数 据。
+
 - 如何实现多进程？Manifest清单文件中声明process属性
+
 - WebView开发的时候为啥一般会指定独立进程？ 
   - WebView导致的OOM问题
   - Android版本不同，采用了不同的内核，兼容性Crash
   - WebView代码质量，WebView和Native版本不一致，导致Crash
+
 - 最近两年的开发没有使用到AIDL和Binder，知识点记住，面试要能答上来，具体细节可以在使用的时候查询。   
 
-
+  
 
 > Android View体系
 
@@ -60,10 +71,16 @@ View的绘制工作是从ViewRoot的performTraversals方法开始，它经过mea
 追问Acitivty如何和Window关联
 
 * Window
-* View 实际绘制内容
+
+```
+Abstract base class for a top-level window look and behavior policy.  An
+instance of this class should be used as the top-level view added to the
+window manager. It provides standard UI policies such as a background, title
+area, default key processing, etc.
+```
+
+* View 负责实际绘制/显示内容
 * Activity
-
-
 
 ### 3.自定义View的具体过程
 
@@ -71,15 +88,22 @@ View的绘制工作是从ViewRoot的performTraversals方法开始，它经过mea
 
 对于自定义ViewGroup来讲，要根据自己的需求重新onMeasure方法，测量并计算子View的位置，然后重写onLayout方法，将计算好的位置传递给子View的layout方法，逐层递归调用
 
+1. 自定义View已经基本掌握（精通），自定义ViewGroup的关键在于精通onMeasure中关于测量的方法和MeasureSpec的三种不同的模式，onLayout只是简单地把子View布置到该放置的地方，因此onMeasure是自定义ViewGroup的精髓所在。
+2. 要精准地理解View绘制的流程/方法/概念。
 
+### 4.onMeasure的具体过程，先measure子view还是自己
 
-### onMeasure的具体过程，先measure子view还是自己
+调用measureChildren去测量每一个子View的尺寸并记录，最后根据子View的尺寸来计算父View的尺寸，并调用父View的super.onMeasure/setMeasureDemension方法，将测量的结果保存
 
-### onDraw的具体过程，先draw子view还是自己
+### 5.onDraw的具体过程，先draw子view还是自己
 
-1. 事件分发机制
+onDraw在整个绘制流程中，是用于绘制主体的方法，对于ViewGroup本身而言，onDraw方法是一个空实现，onDraw调用完成后，会调用dispatchDraw，递归地去调用子View的onDraw方法，绘制子View。
 
-* 关于事件分发机制，可以从两个角度讲解，其一是事件分发的原理和流程
+### 6.事件分发机制
+
+关于事件分发机制，可以从两个角度讲解
+
+* 其一是事件分发的原理和流程
 
 其实质上，是从Activity向下逐层递归调用dispatchTouchEvent()方法，dispatchTouchEvent()本身是一个调度方法，其内部调用onInterceptTouchEvent，判断当前View是否要拦截该事件，如果不拦截，接着调用onTouchEvent，将事件向下分发，直到有子View返回true，消费该事件。
 
@@ -91,36 +115,43 @@ View的绘制工作是从ViewRoot的performTraversals方法开始，它经过mea
 2. 父View想要事件，直接在onInterceptTouchEvent中返回true进行拦截。此时，父View对给子View分发一个action.CANCEL的事件，通知子View恢复状态。
 3. 子View不想要父View拦截，调用requestDisallowInterceptTouchEvent()方法，请求父View不要拦截，该方法只对本地事件有效。
 
-1. 动画（主要是属性动画）这块的内容从hencoder网站及笔记复习
+### 7. 动画（主要是属性动画）
+这块的内容从hencoder网站及笔记复习
 
-2. 自定义View/ViewGroup实现
+### 8.RecyclerView 和 ListView 的相同和不同点，在 item 回收上有什么不同
 
-   1. 自定义View已经基本掌握（精通），自定义ViewGroup的关键在于精通onMeasure中关于测量的方法和MeasureSpec的三种不同的模式，onLayout只是简单地把子View布置到该放置的地方，因此onMeasure是自定义ViewGroup的精髓所在。
-   2. 要精准地理解View绘制的流程/方法/概念。
+### 9.Android Framework层有没有了解过，说说 Window 窗口添加的过程
 
-### RecyclerView 和 ListView 的相同和不同点，在 item 回收上有什么不同
+*  WindowManagerService
 
-### Android Framework层有没有了解过，说说 Window 窗口添加的过程
-
-
+  
 
 > 热点技术
 
-### 热修复
+### 1.热修复
 
-### 10.模块化
+### 2.模块化/组件化的原理，还有一些组件化平时使用的问题
 
-### 11.组件化的原理，还有一些组件化平时使用的问题
+### 3.插件化
 
-### 消息推送有没有做过，推送到达率的问题
+### 4.消息推送有没有做过，推送到达率的问题
+
+项目中使用的推送一般都是用第三方SDK，当然也可以自己写一个心跳。
+
+至于推送到达率，海外的话，使用Firebase，不存在这个问题。
+
+国内的话，只能寄希望于第三方SDK的策略，自己搭建推送服务，成本高，且到达率不易控制。到达率说白了根本还是进程保活，JobScheduler可以做一些后台任务。
 
 > 架构
 
-说说 apk 打包流程以及多渠道打包；
+### 1.说说 apk 打包流程以及多渠道打包
 
-### MVC MVP MVVM的理解
+![APK结构](../img/apk_structure.png)
+![打包流程](../img/apk_tool.png)
 
-### 应用程序崩溃统计以及数据分析
+### 2.MVC MVP MVVM的理解
+
+### 3.应用程序崩溃统计以及数据分析
 
 
 
