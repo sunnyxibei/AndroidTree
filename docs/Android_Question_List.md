@@ -82,6 +82,20 @@ area, default key processing, etc.
 * View 负责实际绘制/显示内容
 * Activity
 
+[Android](http://lib.csdn.net/base/android)中真正展示给用户的是window和view，activity在android中所的作用主要是处理一些逻辑问题，比如生命周期的管理、建立窗口等。在android中，窗口的管理还是比较重要的一块，因为他直接负责把内容展示给用户，并和用户进行交互。响应用户的输入等。 View是真正显示的矩形区域，DecorView是顶层View，也就是主View。 相互之间的关系可以理解为一个Activity包含了一个Window，这个Window其实是一个PhoneWindow，在PhoneWindow中包含了DecorView，变量名称为mDecor，mDecor有一个子View，这个子View的布局方式根据设定的主题来确定，在这个子View的xml布局中包含了一个FrameLayout元素，这个FrameLayout元素的id为content，这个content对应于PhoneWindow中的mContentParent变量，用户自定义的布局作为mContentParent的子View存在,一般情况下mContentParnet只有一个子View，如果在Activity调用addView方式实际上是给PhoneWindow中的mContentParent添加子View，由于mContentParent是一个FrameLayout,因此新的子view会覆盖通过setContentView添加的子view。
+
+https://www.cnblogs.com/aademeng/articles/6538926.html
+
+https://blog.csdn.net/ali18510953445/article/details/77915702
+
+https://www.jianshu.com/p/049df709ddbf
+
+* ViewRootImpl
+
+ViewRoot 对应于ViewRootImpl类，View的三大流程都是通过ViewRoot来完成的。在ActivityThread中，当Activity对象被创建完毕之后，会将DecorView添加到Window中，同时会创建ViewRootImpl对象，并将ViewRootImpl对象和DecorView建立关联。
+
+* DecorView 顶级View
+
 ### 3.自定义View的具体过程
 
 对于自定义View来讲，重写onDraw，在onDraw方法中写入自己的绘制逻辑
