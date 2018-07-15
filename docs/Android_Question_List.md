@@ -145,11 +145,15 @@ onDraw在整个绘制流程中，是用于绘制主体的方法，对于ViewGrou
 > 架构
 
 ### 1.说说 apk 打包流程以及多渠道打包
+多渠道打包这个非常easy了，重点说一下APK的结构和打包流程
+https://www.jianshu.com/p/7c288a17cda8
 
 ![APK结构](../img/apk_structure.png)
 ![打包流程](../img/apk_tool.png)
 
 ### 2.MVC MVP MVVM的理解
+
+
 
 ### 3.应用程序崩溃统计以及数据分析
 
