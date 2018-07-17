@@ -193,6 +193,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.9" data-path="道可道.html">
+            
+                <a href="道可道.html">
+            
+                    
+                    道可道
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -244,17 +257,27 @@
 </blockquote>
 <h3 id="1activity&#x751F;&#x547D;&#x5468;&#x671F;">1.Activity&#x751F;&#x547D;&#x5468;&#x671F;</h3>
 <ul>
-<li>&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</li>
+<li>&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;
+<img src="../img/activity_lifecycle.png" alt="activity_lifecycle"></li>
 <li>&#x590D;&#x7528;Activity&#x60C5;&#x51B5;&#x4E0B;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</li>
-<li><p>Activity&#x5F02;&#x5E38;&#x9500;&#x6BC1;&#x65F6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</p>
-</li>
-<li><p>onNewIntent&#xFF0C;&#x5728;Activity&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x4E3A;SingleTop/SingleTask/SingleInstance&#x65F6;&#xFF0C;&#x590D;&#x7528;Activity&#x65F6;&#xFF0C;&#x4F1A;&#x8C03;&#x7528;onNewIntent&#x65B9;&#x6CD5;</p>
-</li>
 </ul>
+<p>onNewIntent&#xFF0C;&#x5728;Activity&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x4E3A;SingleTop/SingleTask&#x65F6;&#xFF0C;&#x590D;&#x7528;Activity&#x65F6;&#xFF0C;&#x4F1A;&#x56DE;&#x8C03;onNewIntent&#x65B9;&#x6CD5;</p>
+<ul>
+<li>Activity&#x5F02;&#x5E38;&#x9500;&#x6BC1;&#x65F6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</li>
+</ul>
+<p>&#x7CFB;&#x7EDF;&#x4F1A;&#x5148;&#x8C03;&#x7528; <code>onSaveInstanceState()</code>&#xFF0C;&#x7136;&#x540E;&#x518D;&#x4F7F; Activity &#x53D8;&#x5F97;&#x6613;&#x4E8E;&#x9500;&#x6BC1;&#x3002;&#x7CFB;&#x7EDF;&#x4F1A;&#x5411;&#x8BE5;&#x65B9;&#x6CD5;&#x4F20;&#x9012;&#x4E00;&#x4E2A; <code>Bundle</code>&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x5728;&#x5176;&#x4E2D;&#x4F7F;&#x7528; <code>putString()</code> &#x548C; <code>putInt()</code> &#x7B49;&#x65B9;&#x6CD5;&#x4EE5;&#x540D;&#x79F0;-&#x503C;&#x5BF9;&#x5F62;&#x5F0F;&#x4FDD;&#x5B58;&#x6709;&#x5173; Activity &#x72B6;&#x6001;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x7136;&#x540E;&#xFF0C;&#x5982;&#x679C;&#x7CFB;&#x7EDF;&#x7EC8;&#x6B62;&#x60A8;&#x7684;&#x5E94;&#x7528;&#x8FDB;&#x7A0B;&#xFF0C;&#x5E76;&#x4E14;&#x7528;&#x6237;&#x8FD4;&#x56DE;&#x60A8;&#x7684; Activity&#xFF0C;&#x5219;&#x7CFB;&#x7EDF;&#x4F1A;&#x91CD;&#x5EFA;&#x8BE5; Activity&#xFF0C;&#x5E76;&#x5C06; <code>Bundle</code> &#x540C;&#x65F6;&#x4F20;&#x9012;&#x7ED9; <code>onCreate()</code> &#x548C; <code>onRestoreInstanceState()</code>&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0A;&#x8FF0;&#x4EFB;&#x4E00;&#x65B9;&#x6CD5;&#x4ECE; <code>Bundle</code> &#x63D0;&#x53D6;&#x60A8;&#x4FDD;&#x5B58;&#x7684;&#x72B6;&#x6001;&#x5E76;&#x6062;&#x590D;&#x8BE5; Activity &#x72B6;&#x6001;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x9700;&#x8981;&#x6062;&#x590D;&#xFF0C;&#x5219;&#x4F20;&#x9012;&#x7ED9;&#x60A8;&#x7684; <code>Bundle</code> &#x662F;&#x7A7A;&#x503C;&#xFF08;&#x5982;&#x679C;&#x662F;&#x9996;&#x6B21;&#x521B;&#x5EFA;&#x8BE5; Activity&#xFF0C;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF09;&#x3002;</p>
+<p> <img src="../img/restore_instance.png" alt="restore_instance"></p>
 <h3 id="2activity&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#xFF08;launchmode&#xFF09;">2.Activity&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#xFF08;LaunchMode&#xFF09;</h3>
-<h3 id="3handler-&#x3001;messagequeue-&#x3001;looper&#x4E09;&#x8005;&#x7684;&#x5173;&#x7CFB;&#x548C;&#x539F;&#x7406;&#xFF1B;">3.Handler &#x3001;MessageQueue &#x3001;Looper&#x4E09;&#x8005;&#x7684;&#x5173;&#x7CFB;&#x548C;&#x539F;&#x7406;&#xFF1B;</h3>
-<h3 id="asynctask-&#x3001;hanlderthread-&#x3001;intentservice-&#x7684;&#x539F;&#x7406;&#x548C;&#x4F7F;&#x7528;&#x573A;&#x666F;&#xFF1B;">AsyncTask &#x3001;HanlderThread &#x3001;IntentService &#x7684;&#x539F;&#x7406;&#x548C;&#x4F7F;&#x7528;&#x573A;&#x666F;&#xFF1B;</h3>
-<h3 id="ipc&#x901A;&#x4FE1;&#x673A;&#x5236;">IPC&#x901A;&#x4FE1;&#x673A;&#x5236;</h3>
+<h3 id="3activitythread">3.ActivityThread</h3>
+<h3 id="4activitymanagerservice">4.ActivityManagerService</h3>
+<h3 id="56handler-&#x3001;messagequeue-&#x3001;looper&#x4E09;&#x8005;&#x7684;&#x5173;&#x7CFB;&#x548C;&#x539F;&#x7406;">5.6.Handler &#x3001;MessageQueue &#x3001;Looper&#x4E09;&#x8005;&#x7684;&#x5173;&#x7CFB;&#x548C;&#x539F;&#x7406;</h3>
+<p><img src="../img/handler.png" alt="Hadler&#x673A;&#x5236;&#x56FE;&#x89E3;"></p>
+<h3 id="6asynctask-&#x3001;hanlderthread-&#x3001;intentservice-&#x7684;&#x539F;&#x7406;&#x548C;&#x4F7F;&#x7528;&#x573A;&#x666F;">6.AsyncTask &#x3001;HanlderThread &#x3001;IntentService &#x7684;&#x539F;&#x7406;&#x548C;&#x4F7F;&#x7528;&#x573A;&#x666F;</h3>
+<p>AsyncTask&#x8FD9;&#x4E2A;API&#x5DF2;&#x7ECF;&#x5E9F;&#x5F03;&#x597D;&#x591A;&#x5E74;&#x4E0D;&#x7528;&#x4E86;</p>
+<p>&#x987E;&#x540D;&#x601D;&#x4E49;&#xFF0C;HandlerThread&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x81EA;&#x5E26;Looper&#x7684;Thread</p>
+<p>IntentService&#xFF0C;&#x81EA;&#x5E26;HanderThread&#x7684;&#x8F7B;&#x91CF;&#x7EA7;&#x670D;&#x52A1;&#xFF0C;&#x5728;handleMessage&#x4E2D;&#x5904;&#x7406;&#x903B;&#x8F91;&#xFF0C;handleMessage&#x5904;&#x7406;&#x5B8C;&#x6210;&#x540E;&#x81EA;&#x5DF1;&#x4F1A;&#x8C03;&#x7528;stopSelf&#x7ED3;&#x675F;&#x670D;&#x52A1;&#x3002;</p>
+<p>&#x4F7F;&#x7528;&#x573A;&#x666F;&#x7684;&#x8BDD;&#xFF0C;&#x81EA;&#x4ECE;&#x6709;&#x4E86;RxJava&#xFF0C;&#x6211;&#x662F;&#x771F;&#x6CA1;&#x60F3;&#x5230;AsyncTask&#x6709;&#x5565;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x4E86;&#x3002;</p>
+<h3 id="7ipc&#x901A;&#x4FE1;&#x673A;&#x5236;">7.IPC&#x901A;&#x4FE1;&#x673A;&#x5236;</h3>
 <ol>
 <li>Android&#x8FDB;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;&#xFF08;IPC&#xFF09;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#xFF1A;Bundle&#xFF0C;&#x6587;&#x4EF6;&#x5171;&#x4EAB;&#xFF0C;AIDL&#xFF0C;Messenger&#xFF0C;ContentProvider&#xFF0C;Socket&#xFF0C;BroadCastReceiver</li>
 <li><p>Android&#x8FDB;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;&#xFF08;IPC&#xFF09;&#x7684;&#x673A;&#x5236;&#xFF1A;Binder Parcelable&#xFF08;&#x6B64;&#x5904;&#x4E0D;&#x5728;&#x53D9;&#x8FF0;Serializable&#xFF09;Parcelable&#x63A5;&#x53E3;&#x5728;&#x5B8C;&#x6210;&#x6570;&#x636E;&#x7684;&#x5E8F;&#x5217;&#x5316;&#x8FC7;&#x7A0B;&#x4E4B;&#x540E;&#xFF0C;&#x901A;&#x8FC7;Binder&#x8FDB;&#x884C;&#x4F20;&#x8F93;&#x3002;&#x5B9E;&#x8D28;&#x4E0A;Parcelable&#x5305;&#x542B;&#x5E8F;&#x5217;&#x5316;&#x548C;&#x53CD;&#x5E8F;&#x5217;&#x5316;</p>
@@ -275,72 +298,114 @@
 <li>WebView&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#xFF0C;WebView&#x548C;Native&#x7248;&#x672C;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x5BFC;&#x81F4;Crash</li>
 </ul>
 </li>
-<li>&#x6700;&#x8FD1;&#x4E24;&#x5E74;&#x7684;&#x5F00;&#x53D1;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x5230;AIDL&#x548C;Binder&#xFF0C;&#x77E5;&#x8BC6;&#x70B9;&#x8BB0;&#x4F4F;&#xFF0C;&#x9762;&#x8BD5;&#x8981;&#x80FD;&#x7B54;&#x4E0A;&#x6765;&#xFF0C;&#x5177;&#x4F53;&#x7EC6;&#x8282;&#x53EF;&#x4EE5;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x67E5;&#x8BE2;&#x3002;  </li>
+<li>&#x6700;&#x8FD1;&#x4E24;&#x5E74;&#x7684;&#x5F00;&#x53D1;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x5230;AIDL&#x548C;Binder&#xFF0C;&#x77E5;&#x8BC6;&#x70B9;&#x8BB0;&#x4F4F;&#xFF0C;&#x9762;&#x8BD5;&#x8981;&#x80FD;&#x7B54;&#x4E0A;&#x6765;&#xFF0C;&#x5177;&#x4F53;&#x7EC6;&#x8282;&#x53EF;&#x4EE5;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x67E5;&#x8BE2;&#x3002;   </li>
+<li>&#x8BE6;&#x89C1;&#x201C;&#x8DDF;&#x9762;&#x8BD5;&#x5B98;&#x8BB2;Binder&#x7CFB;&#x5217;&#x201D;</li>
 </ol>
-<h3 id=""> </h3>
 <blockquote>
-<p>View</p>
+<p>Android View&#x4F53;&#x7CFB;</p>
 </blockquote>
-<h3 id="android-view&#x4F53;&#x7CFB;">Android View&#x4F53;&#x7CFB;</h3>
-<ol>
-<li><p>View&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;</p>
-<ol>
-<li>onDraw&#x4E3B;&#x4F53;&#x7ED8;&#x5236;</li>
-</ol>
-</li>
-<li><p>&#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x673A;&#x5236;</p>
-<ol>
-<li>&#x5173;&#x4E8E;&#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x673A;&#x5236;&#xFF0C;&#x53EF;&#x4EE5;&#x4ECE;&#x4E24;&#x4E2A;&#x89D2;&#x5EA6;&#x8BB2;&#x89E3;&#xFF0C;&#x5176;&#x4E00;&#x662F;&#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x7684;&#x539F;&#x7406;&#x548C;&#x6D41;&#x7A0B;</li>
-</ol>
-<p>&#x5176;&#x5B9E;&#x8D28;&#x4E0A;&#xFF0C;&#x662F;&#x4ECE;Activity&#x5411;&#x4E0B;&#x9010;&#x5C42;&#x9012;&#x5F52;&#x8C03;&#x7528;dispatchTouchEvent()&#x65B9;&#x6CD5;&#xFF0C;dispatchTouchEvent()&#x672C;&#x8EAB;&#x662F;&#x4E00;&#x4E2A;&#x8C03;&#x5EA6;&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x5185;&#x90E8;&#x8C03;&#x7528;onInterceptTouchEvent&#xFF0C;&#x5224;&#x65AD;&#x5F53;&#x524D;View&#x662F;&#x5426;&#x8981;&#x62E6;&#x622A;&#x8BE5;&#x4E8B;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x62E6;&#x622A;&#xFF0C;&#x63A5;&#x7740;&#x8C03;&#x7528;onTouchEvent&#xFF0C;&#x5C06;&#x4E8B;&#x4EF6;&#x5411;&#x4E0B;&#x5206;&#x53D1;&#xFF0C;&#x76F4;&#x5230;&#x6709;&#x5B50;View&#x8FD4;&#x56DE;true&#xFF0C;&#x6D88;&#x8D39;&#x8BE5;&#x4E8B;&#x4EF6;&#x3002;</p>
-<p>&#x5176;&#x4E2D;&#xFF0C;onTouchEvent&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x5B50;View&#x5728;&#x8BE5;&#x4E8B;&#x4EF6;&#x7684;action.DOWN&#x4E8B;&#x4EF6;&#x8FD4;&#x56DE;&#x4E86;false&#xFF0C;&#x90A3;&#x4E48;&#x672C;&#x6B21;&#x89E6;&#x6478;&#x4EE5;&#x540E;&#x7684;&#x4E8B;&#x4EF6;&#x5B50;View&#x90FD;&#x4E0D;&#x4F1A;&#x6536;&#x5230;</p>
-<ol>
-<li>&#x5176;&#x4E8C;&#x662F;&#x5904;&#x7406;&#x4E8B;&#x4EF6;&#x51B2;&#x7A81;&#x7684;&#x5177;&#x4F53;&#x601D;&#x8DEF;</li>
-</ol>
-<p>&#x5177;&#x4F53;&#x601D;&#x8DEF;&#x6709;&#x4E09;&#x4E2A;&#xFF1A;</p>
-<ol>
-<li>&#x5B9E;&#x73B0;&#x81EA;&#x5B9A;&#x4E49;&#x89E6;&#x6478;&#x53CD;&#x9988;&#xFF0C;&#x76F4;&#x63A5;&#x5728;onTouchEvent&#x4E2D;&#x5904;&#x7406;&#x4E8B;&#x4EF6;&#x5C31;OK</li>
-<li>&#x7236;View&#x60F3;&#x8981;&#x4E8B;&#x4EF6;&#xFF0C;&#x76F4;&#x63A5;&#x5728;onInterceptTouchEvent&#x4E2D;&#x8FD4;&#x56DE;true&#x8FDB;&#x884C;&#x62E6;&#x622A;&#x3002;&#x6B64;&#x65F6;&#xFF0C;&#x7236;View&#x5BF9;&#x7ED9;&#x5B50;View&#x5206;&#x53D1;&#x4E00;&#x4E2A;action.CANCEL&#x7684;&#x4E8B;&#x4EF6;&#xFF0C;&#x901A;&#x77E5;&#x5B50;View&#x6062;&#x590D;&#x72B6;&#x6001;&#x3002;</li>
-<li>&#x5B50;View&#x4E0D;&#x60F3;&#x8981;&#x7236;View&#x62E6;&#x622A;&#xFF0C;&#x8C03;&#x7528;requestDisallowInterceptTouchEvent()&#x65B9;&#x6CD5;&#xFF0C;&#x8BF7;&#x6C42;&#x7236;View&#x4E0D;&#x8981;&#x62E6;&#x622A;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x53EA;&#x5BF9;&#x672C;&#x5730;&#x4E8B;&#x4EF6;&#x6709;&#x6548;&#x3002;</li>
-</ol>
-</li>
-</ol>
-<ol>
-<li><p>&#x52A8;&#x753B;&#xFF08;&#x4E3B;&#x8981;&#x662F;&#x5C5E;&#x6027;&#x52A8;&#x753B;&#xFF09;&#x8FD9;&#x5757;&#x7684;&#x5185;&#x5BB9;&#x4ECE;hencoder&#x7F51;&#x7AD9;&#x53CA;&#x7B14;&#x8BB0;&#x590D;&#x4E60;</p>
-</li>
-<li><p>&#x81EA;&#x5B9A;&#x4E49;View/ViewGroup&#x5B9E;&#x73B0;</p>
+<h3 id="1view&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x7ED8;&#x5236;&#x8FC7;&#x7A0B;">1.View&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;/&#x7ED8;&#x5236;&#x8FC7;&#x7A0B;</h3>
+<p>View&#x7684;&#x7ED8;&#x5236;&#x5DE5;&#x4F5C;&#x662F;&#x4ECE;ViewRoot&#x7684;performTraversals&#x65B9;&#x6CD5;&#x5F00;&#x59CB;&#xFF0C;&#x5B83;&#x7ECF;&#x8FC7;measure/layout/draw&#x4E09;&#x4E2A;&#x8FC7;&#x7A0B;&#x624D;&#x80FD;&#x6700;&#x7EC8;&#x5C06;&#x4E00;&#x4E2A;View&#x7ED8;&#x5236;&#x51FA;&#x6765;&#x3002;ViewRoot&#x5BF9;&#x5E94;&#x4E8E;ViewRootImpl&#x7C7B;&#xFF0C;&#x5B83;&#x662F;&#x8FDE;&#x63A5;WindowManager&#x548C;DecorView&#x7684;&#x7EBD;&#x5E26;&#x3002;View&#x7684;&#x4E09;&#x5927;&#x6D41;&#x7A0B;&#x5747;&#x662F;&#x901A;&#x8FC7;ViewRoot&#x6765;&#x5B8C;&#x6210;&#x7684;&#x3002;&#x5728;ActivityThread&#x4E2D;&#xFF0C;&#x5F53;Activity&#x5BF9;&#x8C61;&#x88AB;&#x521B;&#x5EFA;&#x5B8C;&#x6BD5;&#x540E;&#xFF0C;&#x4F1A;&#x5C06;DecorView&#x6DFB;&#x52A0;&#x5230;WIndow&#x4E2D;&#xFF0C;&#x540C;&#x65F6;&#x4F1A;&#x521B;&#x5EFA;ViewRootImpl&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5C06;ViewRootImpl&#x5BF9;&#x8C61;&#x548C;DecorView&#x5EFA;&#x7ACB;&#x5173;&#x8054;&#x3002;</p>
+<p><img src="../img/dispatch_draw.jpg" alt="&#x7ED8;&#x5236;&#x8FC7;&#x7A0B;">
+<img src="../img/dispatch_draw_1.jpg" alt="&#x7ED8;&#x5236;&#x8FC7;&#x7A0B;"></p>
+<h3 id="2window-view-activity&#x4E09;&#x8005;&#x7684;&#x5173;&#x7CFB;">2.Window View Activity&#x4E09;&#x8005;&#x7684;&#x5173;&#x7CFB;</h3>
+<p>&#x8FFD;&#x95EE;Acitivty&#x5982;&#x4F55;&#x548C;Window&#x5173;&#x8054;</p>
+<ul>
+<li>Window</li>
+</ul>
+<pre><code>Abstract base class for a top-level window look and behavior policy.  An
+instance of this class should be used as the top-level view added to the
+window manager. It provides standard UI policies such as a background, title
+area, default key processing, etc.
+</code></pre><ul>
+<li>View &#x8D1F;&#x8D23;&#x5B9E;&#x9645;&#x7ED8;&#x5236;/&#x663E;&#x793A;&#x5185;&#x5BB9;</li>
+<li>Activity</li>
+</ul>
+<p><a href="http://lib.csdn.net/base/android" target="_blank">Android</a>&#x4E2D;&#x771F;&#x6B63;&#x5C55;&#x793A;&#x7ED9;&#x7528;&#x6237;&#x7684;&#x662F;window&#x548C;view&#xFF0C;activity&#x5728;android&#x4E2D;&#x6240;&#x7684;&#x4F5C;&#x7528;&#x4E3B;&#x8981;&#x662F;&#x5904;&#x7406;&#x4E00;&#x4E9B;&#x903B;&#x8F91;&#x95EE;&#x9898;&#xFF0C;&#x6BD4;&#x5982;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x7BA1;&#x7406;&#x3001;&#x5EFA;&#x7ACB;&#x7A97;&#x53E3;&#x7B49;&#x3002;&#x5728;android&#x4E2D;&#xFF0C;&#x7A97;&#x53E3;&#x7684;&#x7BA1;&#x7406;&#x8FD8;&#x662F;&#x6BD4;&#x8F83;&#x91CD;&#x8981;&#x7684;&#x4E00;&#x5757;&#xFF0C;&#x56E0;&#x4E3A;&#x4ED6;&#x76F4;&#x63A5;&#x8D1F;&#x8D23;&#x628A;&#x5185;&#x5BB9;&#x5C55;&#x793A;&#x7ED9;&#x7528;&#x6237;&#xFF0C;&#x5E76;&#x548C;&#x7528;&#x6237;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#x3002;&#x54CD;&#x5E94;&#x7528;&#x6237;&#x7684;&#x8F93;&#x5165;&#x7B49;&#x3002; View&#x662F;&#x771F;&#x6B63;&#x663E;&#x793A;&#x7684;&#x77E9;&#x5F62;&#x533A;&#x57DF;&#xFF0C;DecorView&#x662F;&#x9876;&#x5C42;View&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E3B;View&#x3002; &#x76F8;&#x4E92;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x4E00;&#x4E2A;Activity&#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E2A;Window&#xFF0C;&#x8FD9;&#x4E2A;Window&#x5176;&#x5B9E;&#x662F;&#x4E00;&#x4E2A;PhoneWindow&#xFF0C;&#x5728;PhoneWindow&#x4E2D;&#x5305;&#x542B;&#x4E86;DecorView&#xFF0C;&#x53D8;&#x91CF;&#x540D;&#x79F0;&#x4E3A;mDecor&#xFF0C;mDecor&#x6709;&#x4E00;&#x4E2A;&#x5B50;View&#xFF0C;&#x8FD9;&#x4E2A;&#x5B50;View&#x7684;&#x5E03;&#x5C40;&#x65B9;&#x5F0F;&#x6839;&#x636E;&#x8BBE;&#x5B9A;&#x7684;&#x4E3B;&#x9898;&#x6765;&#x786E;&#x5B9A;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x5B50;View&#x7684;xml&#x5E03;&#x5C40;&#x4E2D;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E2A;FrameLayout&#x5143;&#x7D20;&#xFF0C;&#x8FD9;&#x4E2A;FrameLayout&#x5143;&#x7D20;&#x7684;id&#x4E3A;content&#xFF0C;&#x8FD9;&#x4E2A;content&#x5BF9;&#x5E94;&#x4E8E;PhoneWindow&#x4E2D;&#x7684;mContentParent&#x53D8;&#x91CF;&#xFF0C;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x5E03;&#x5C40;&#x4F5C;&#x4E3A;mContentParent&#x7684;&#x5B50;View&#x5B58;&#x5728;,&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;mContentParnet&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5B50;View&#xFF0C;&#x5982;&#x679C;&#x5728;Activity&#x8C03;&#x7528;addView&#x65B9;&#x5F0F;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x7ED9;PhoneWindow&#x4E2D;&#x7684;mContentParent&#x6DFB;&#x52A0;&#x5B50;View&#xFF0C;&#x7531;&#x4E8E;mContentParent&#x662F;&#x4E00;&#x4E2A;FrameLayout,&#x56E0;&#x6B64;&#x65B0;&#x7684;&#x5B50;view&#x4F1A;&#x8986;&#x76D6;&#x901A;&#x8FC7;setContentView&#x6DFB;&#x52A0;&#x7684;&#x5B50;view&#x3002;</p>
+<p><a href="https://www.cnblogs.com/aademeng/articles/6538926.html" target="_blank">https://www.cnblogs.com/aademeng/articles/6538926.html</a></p>
+<p><a href="https://blog.csdn.net/ali18510953445/article/details/77915702" target="_blank">https://blog.csdn.net/ali18510953445/article/details/77915702</a></p>
+<p><a href="https://www.jianshu.com/p/049df709ddbf" target="_blank">https://www.jianshu.com/p/049df709ddbf</a></p>
+<ul>
+<li>ViewRootImpl</li>
+</ul>
+<p>ViewRoot &#x5BF9;&#x5E94;&#x4E8E;ViewRootImpl&#x7C7B;&#xFF0C;View&#x7684;&#x4E09;&#x5927;&#x6D41;&#x7A0B;&#x90FD;&#x662F;&#x901A;&#x8FC7;ViewRoot&#x6765;&#x5B8C;&#x6210;&#x7684;&#x3002;&#x5728;ActivityThread&#x4E2D;&#xFF0C;&#x5F53;Activity&#x5BF9;&#x8C61;&#x88AB;&#x521B;&#x5EFA;&#x5B8C;&#x6BD5;&#x4E4B;&#x540E;&#xFF0C;&#x4F1A;&#x5C06;DecorView&#x6DFB;&#x52A0;&#x5230;Window&#x4E2D;&#xFF0C;&#x540C;&#x65F6;&#x4F1A;&#x521B;&#x5EFA;ViewRootImpl&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5C06;ViewRootImpl&#x5BF9;&#x8C61;&#x548C;DecorView&#x5EFA;&#x7ACB;&#x5173;&#x8054;&#x3002;</p>
+<ul>
+<li>DecorView &#x9876;&#x7EA7;View</li>
+</ul>
+<h3 id="3&#x81EA;&#x5B9A;&#x4E49;view&#x7684;&#x5177;&#x4F53;&#x8FC7;&#x7A0B;">3.&#x81EA;&#x5B9A;&#x4E49;View&#x7684;&#x5177;&#x4F53;&#x8FC7;&#x7A0B;</h3>
+<p>&#x5BF9;&#x4E8E;&#x81EA;&#x5B9A;&#x4E49;View&#x6765;&#x8BB2;&#xFF0C;&#x91CD;&#x5199;onDraw&#xFF0C;&#x5728;onDraw&#x65B9;&#x6CD5;&#x4E2D;&#x5199;&#x5165;&#x81EA;&#x5DF1;&#x7684;&#x7ED8;&#x5236;&#x903B;&#x8F91;</p>
+<p>&#x5BF9;&#x4E8E;&#x81EA;&#x5B9A;&#x4E49;ViewGroup&#x6765;&#x8BB2;&#xFF0C;&#x8981;&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x7684;&#x9700;&#x6C42;&#x91CD;&#x65B0;onMeasure&#x65B9;&#x6CD5;&#xFF0C;&#x6D4B;&#x91CF;&#x5E76;&#x8BA1;&#x7B97;&#x5B50;View&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x5199;onLayout&#x65B9;&#x6CD5;&#xFF0C;&#x5C06;&#x8BA1;&#x7B97;&#x597D;&#x7684;&#x4F4D;&#x7F6E;&#x4F20;&#x9012;&#x7ED9;&#x5B50;View&#x7684;layout&#x65B9;&#x6CD5;&#xFF0C;&#x9010;&#x5C42;&#x9012;&#x5F52;&#x8C03;&#x7528;</p>
 <ol>
 <li>&#x81EA;&#x5B9A;&#x4E49;View&#x5DF2;&#x7ECF;&#x57FA;&#x672C;&#x638C;&#x63E1;&#xFF08;&#x7CBE;&#x901A;&#xFF09;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;ViewGroup&#x7684;&#x5173;&#x952E;&#x5728;&#x4E8E;&#x7CBE;&#x901A;onMeasure&#x4E2D;&#x5173;&#x4E8E;&#x6D4B;&#x91CF;&#x7684;&#x65B9;&#x6CD5;&#x548C;MeasureSpec&#x7684;&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x6A21;&#x5F0F;&#xFF0C;onLayout&#x53EA;&#x662F;&#x7B80;&#x5355;&#x5730;&#x628A;&#x5B50;View&#x5E03;&#x7F6E;&#x5230;&#x8BE5;&#x653E;&#x7F6E;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x56E0;&#x6B64;onMeasure&#x662F;&#x81EA;&#x5B9A;&#x4E49;ViewGroup&#x7684;&#x7CBE;&#x9AD3;&#x6240;&#x5728;&#x3002;</li>
 <li>&#x8981;&#x7CBE;&#x51C6;&#x5730;&#x7406;&#x89E3;View&#x7ED8;&#x5236;&#x7684;&#x6D41;&#x7A0B;/&#x65B9;&#x6CD5;/&#x6982;&#x5FF5;&#x3002;</li>
 </ol>
+<h3 id="4onmeasure&#x7684;&#x5177;&#x4F53;&#x8FC7;&#x7A0B;&#xFF0C;&#x5148;measure&#x5B50;view&#x8FD8;&#x662F;&#x81EA;&#x5DF1;">4.onMeasure&#x7684;&#x5177;&#x4F53;&#x8FC7;&#x7A0B;&#xFF0C;&#x5148;measure&#x5B50;view&#x8FD8;&#x662F;&#x81EA;&#x5DF1;</h3>
+<p>&#x8C03;&#x7528;measureChildren&#x53BB;&#x6D4B;&#x91CF;&#x6BCF;&#x4E00;&#x4E2A;&#x5B50;View&#x7684;&#x5C3A;&#x5BF8;&#x5E76;&#x8BB0;&#x5F55;&#xFF0C;&#x6700;&#x540E;&#x6839;&#x636E;&#x5B50;View&#x7684;&#x5C3A;&#x5BF8;&#x6765;&#x8BA1;&#x7B97;&#x7236;View&#x7684;&#x5C3A;&#x5BF8;&#xFF0C;&#x5E76;&#x8C03;&#x7528;&#x7236;View&#x7684;super.onMeasure/setMeasureDemension&#x65B9;&#x6CD5;&#xFF0C;&#x5C06;&#x6D4B;&#x91CF;&#x7684;&#x7ED3;&#x679C;&#x4FDD;&#x5B58;</p>
+<h3 id="5ondraw&#x7684;&#x5177;&#x4F53;&#x8FC7;&#x7A0B;&#xFF0C;&#x5148;draw&#x5B50;view&#x8FD8;&#x662F;&#x81EA;&#x5DF1;">5.onDraw&#x7684;&#x5177;&#x4F53;&#x8FC7;&#x7A0B;&#xFF0C;&#x5148;draw&#x5B50;view&#x8FD8;&#x662F;&#x81EA;&#x5DF1;</h3>
+<p>onDraw&#x5728;&#x6574;&#x4E2A;&#x7ED8;&#x5236;&#x6D41;&#x7A0B;&#x4E2D;&#xFF0C;&#x662F;&#x7528;&#x4E8E;&#x7ED8;&#x5236;&#x4E3B;&#x4F53;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5BF9;&#x4E8E;ViewGroup&#x672C;&#x8EAB;&#x800C;&#x8A00;&#xFF0C;onDraw&#x65B9;&#x6CD5;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x5B9E;&#x73B0;&#xFF0C;onDraw&#x8C03;&#x7528;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x4F1A;&#x8C03;&#x7528;dispatchDraw&#xFF0C;&#x9012;&#x5F52;&#x5730;&#x53BB;&#x8C03;&#x7528;&#x5B50;View&#x7684;onDraw&#x65B9;&#x6CD5;&#xFF0C;&#x7ED8;&#x5236;&#x5B50;View&#x3002;</p>
+<h3 id="6&#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x673A;&#x5236;">6.&#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x673A;&#x5236;</h3>
+<p>&#x5173;&#x4E8E;&#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x673A;&#x5236;&#xFF0C;&#x53EF;&#x4EE5;&#x4ECE;&#x4E24;&#x4E2A;&#x89D2;&#x5EA6;&#x8BB2;&#x89E3;</p>
+<ul>
+<li>&#x5176;&#x4E00;&#x662F;&#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x7684;&#x539F;&#x7406;&#x548C;&#x6D41;&#x7A0B;</li>
+</ul>
+<p>&#x5176;&#x5B9E;&#x8D28;&#x4E0A;&#xFF0C;&#x662F;&#x4ECE;Activity&#x5411;&#x4E0B;&#x9010;&#x5C42;&#x9012;&#x5F52;&#x8C03;&#x7528;dispatchTouchEvent()&#x65B9;&#x6CD5;&#xFF0C;dispatchTouchEvent()&#x672C;&#x8EAB;&#x662F;&#x4E00;&#x4E2A;&#x8C03;&#x5EA6;&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x5185;&#x90E8;&#x8C03;&#x7528;onInterceptTouchEvent&#xFF0C;&#x5224;&#x65AD;&#x5F53;&#x524D;View&#x662F;&#x5426;&#x8981;&#x62E6;&#x622A;&#x8BE5;&#x4E8B;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x62E6;&#x622A;&#xFF0C;&#x63A5;&#x7740;&#x8C03;&#x7528;onTouchEvent&#xFF0C;&#x5C06;&#x4E8B;&#x4EF6;&#x5411;&#x4E0B;&#x5206;&#x53D1;&#xFF0C;&#x76F4;&#x5230;&#x6709;&#x5B50;View&#x8FD4;&#x56DE;true&#xFF0C;&#x6D88;&#x8D39;&#x8BE5;&#x4E8B;&#x4EF6;&#x3002;</p>
+<p>&#x5176;&#x4E2D;&#xFF0C;onTouchEvent&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x5B50;View&#x5728;&#x8BE5;&#x4E8B;&#x4EF6;&#x7684;action.DOWN&#x4E8B;&#x4EF6;&#x8FD4;&#x56DE;&#x4E86;false&#xFF0C;&#x90A3;&#x4E48;&#x672C;&#x6B21;&#x89E6;&#x6478;&#x4EE5;&#x540E;&#x7684;&#x4E8B;&#x4EF6;&#x5B50;View&#x90FD;&#x4E0D;&#x4F1A;&#x6536;&#x5230;</p>
+<ul>
+<li><p>&#x5176;&#x4E8C;&#x662F;&#x5904;&#x7406;&#x4E8B;&#x4EF6;&#x51B2;&#x7A81;&#x7684;&#x5177;&#x4F53;&#x601D;&#x8DEF;&#xFF1A;</p>
 </li>
+<li><p>&#x5B9E;&#x73B0;&#x81EA;&#x5B9A;&#x4E49;&#x89E6;&#x6478;&#x53CD;&#x9988;&#xFF0C;&#x76F4;&#x63A5;&#x5728;onTouchEvent&#x4E2D;&#x5904;&#x7406;&#x4E8B;&#x4EF6;&#x5C31;OK</p>
+</li>
+<li>&#x7236;View&#x60F3;&#x8981;&#x4E8B;&#x4EF6;&#xFF0C;&#x76F4;&#x63A5;&#x5728;onInterceptTouchEvent&#x4E2D;&#x8FD4;&#x56DE;true&#x8FDB;&#x884C;&#x62E6;&#x622A;&#x3002;&#x6B64;&#x65F6;&#xFF0C;&#x7236;View&#x5BF9;&#x7ED9;&#x5B50;View&#x5206;&#x53D1;&#x4E00;&#x4E2A;action.CANCEL&#x7684;&#x4E8B;&#x4EF6;&#xFF0C;&#x901A;&#x77E5;&#x5B50;View&#x6062;&#x590D;&#x72B6;&#x6001;&#x3002;</li>
+<li>&#x5B50;View&#x4E0D;&#x60F3;&#x8981;&#x7236;View&#x62E6;&#x622A;&#xFF0C;&#x8C03;&#x7528;requestDisallowInterceptTouchEvent()&#x65B9;&#x6CD5;&#xFF0C;&#x8BF7;&#x6C42;&#x7236;View&#x4E0D;&#x8981;&#x62E6;&#x622A;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x53EA;&#x5BF9;&#x672C;&#x5730;&#x4E8B;&#x4EF6;&#x6709;&#x6548;&#x3002;</li>
+</ul>
+<h3 id="7android-framework&#x5C42;&#x6709;&#x6CA1;&#x6709;&#x4E86;&#x89E3;&#x8FC7;&#xFF0C;&#x8BF4;&#x8BF4;-window-&#x7A97;&#x53E3;&#x6DFB;&#x52A0;&#x7684;&#x8FC7;&#x7A0B;">7.Android Framework&#x5C42;&#x6709;&#x6CA1;&#x6709;&#x4E86;&#x89E3;&#x8FC7;&#xFF0C;&#x8BF4;&#x8BF4; Window &#x7A97;&#x53E3;&#x6DFB;&#x52A0;&#x7684;&#x8FC7;&#x7A0B;</h3>
+<p><a href="https://www.jianshu.com/p/049df709ddbf" target="_blank">https://www.jianshu.com/p/049df709ddbf</a></p>
+<p>&#x6BCF;&#x4E00;&#x4E2A;Activity&#x7EC4;&#x4EF6;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x5173;&#x8054;&#x7684;Window&#x5BF9;&#x8C61;&#xFF0C;&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7A97;&#x53E3;&#x3002;&#x6BCF;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7A97;&#x53E3;&#x5185;&#x90E8;&#x53C8;&#x5305;&#x542B;&#x6709;&#x4E00;&#x4E2A;View&#x5BF9;&#x8C61;&#xFF0C;&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7A97;&#x53E3;&#x7684;&#x89C6;&#x56FE;&#x3002;&#x4E0A;&#x6587;&#x5206;&#x6790;&#x4E86;&#x521B;&#x5EFA;DecorView&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x73B0;&#x5728;&#x5219;&#x8981;&#x628A;DecorView&#x6DFB;&#x52A0;&#x5230;Window&#x5BF9;&#x8C61;&#x4E2D;&#x3002;&#x800C;&#x8981;&#x4E86;&#x89E3;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#xFF0C;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x8981;&#x7B80;&#x5355;&#x5148;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;Activity&#x7684;&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;&#xFF1A;
+ &#x9996;&#x5148;&#xFF0C;&#x5728;ActivityThread#handleLaunchActivity&#x4E2D;&#x542F;&#x52A8;Activity&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x9762;&#x4F1A;&#x8C03;&#x7528;&#x5230;Activity#onCreate&#x65B9;&#x6CD5;&#xFF0C;&#x4ECE;&#x800C;&#x5B8C;&#x6210;&#x4E0A;&#x9762;&#x6240;&#x8FF0;&#x7684;DecorView&#x521B;&#x5EFA;&#x52A8;&#x4F5C;&#xFF0C;&#x5F53;onCreate()&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#xFF0C;&#x5728;handleLaunchActivity&#x65B9;&#x6CD5;&#x4F1A;&#x7EE7;&#x7EED;&#x8C03;&#x7528;&#x5230;ActivityThread#handleResumeActivity&#x65B9;&#x6CD5;&#xFF0C;</p>
+<p>&#x5148;&#x770B;&#x2460;&#x53F7;&#x4EE3;&#x7801;&#x5904;&#xFF0C;&#x5B9E;&#x4F8B;&#x5316;&#x4E86;ViewRootImpl&#x7C7B;&#xFF0C;&#x63A5;&#x7740;&#xFF0C;&#x5728;&#x2461;&#x53F7;&#x4EE3;&#x7801;&#x5904;&#xFF0C;&#x8C03;&#x7528;ViewRootImpl#setView&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x628A;DecorView&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x8FDB;&#x53BB;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5185;&#x90E8;&#xFF0C;&#x4F1A;&#x901A;&#x8FC7;&#x8DE8;&#x8FDB;&#x7A0B;&#x7684;&#x65B9;&#x5F0F;&#x5411;WMS&#xFF08;WindowManagerService&#xFF09;&#x53D1;&#x8D77;&#x4E00;&#x4E2A;&#x8C03;&#x7528;&#xFF0C;&#x4ECE;&#x800C;&#x5C06;DecorView&#x6700;&#x7EC8;&#x6DFB;&#x52A0;&#x5230;Window&#x4E0A;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;ViewRootImpl&#x3001;DecorView&#x548C;WMS&#x4F1A;&#x5F7C;&#x6B64;&#x5173;&#x8054;&#xFF0C;&#x81F3;&#x4E8E;&#x8BE6;&#x7EC6;&#x8FC7;&#x7A0B;&#x8FD9;&#x91CC;&#x4E0D;&#x5C55;&#x5F00;&#x6765;&#x8BF4;&#x4E86;&#x3002;
+ &#x6700;&#x540E;&#x901A;&#x8FC7;WMS&#x8C03;&#x7528;ViewRootImpl#performTraverals&#x65B9;&#x6CD5;&#x5F00;&#x59CB;View&#x7684;&#x6D4B;&#x91CF;&#x3001;&#x5E03;&#x5C40;&#x3001;&#x7ED8;&#x5236;&#x6D41;&#x7A0B;</p>
+<h3 id="8-&#x52A8;&#x753B;&#xFF08;&#x4E3B;&#x8981;&#x662F;&#x5C5E;&#x6027;&#x52A8;&#x753B;&#xFF09;">8. &#x52A8;&#x753B;&#xFF08;&#x4E3B;&#x8981;&#x662F;&#x5C5E;&#x6027;&#x52A8;&#x753B;&#xFF09;</h3>
+<p>&#x8FD9;&#x5757;&#x7684;&#x5185;&#x5BB9;&#x4ECE;hencoder&#x7F51;&#x7AD9;&#x53CA;&#x7B14;&#x8BB0;&#x590D;&#x4E60;</p>
+<h3 id="9recyclerview-&#x548C;-listview-&#x7684;&#x76F8;&#x540C;&#x548C;&#x4E0D;&#x540C;&#x70B9;&#xFF0C;&#x5728;-item-&#x56DE;&#x6536;&#x4E0A;&#x6709;&#x4EC0;&#x4E48;&#x4E0D;&#x540C;">9.RecyclerView &#x548C; ListView &#x7684;&#x76F8;&#x540C;&#x548C;&#x4E0D;&#x540C;&#x70B9;&#xFF0C;&#x5728; item &#x56DE;&#x6536;&#x4E0A;&#x6709;&#x4EC0;&#x4E48;&#x4E0D;&#x540C;</h3>
+<ul>
+<li>RecyclerView&#x652F;&#x6301;&#x4E09;&#x79CD;&#x5E03;&#x5C40;&#x65B9;&#x5F0F;&#xFF0C;&#x66F4;&#x52A0;&#x7075;&#x6D3B;<ol>
+<li>LinearLayoutManager&#xFF0C;&#x53EF;&#x4EE5;&#x652F;&#x6301;&#x6C34;&#x5E73;&#x548C;&#x7AD6;&#x76F4;&#x65B9;&#x5411;&#x4E0A;&#x6EDA;&#x52A8;&#x7684;&#x5217;&#x8868;&#x3002;</li>
+<li>StaggeredGridLayoutManager&#xFF0C;&#x53EF;&#x4EE5;&#x652F;&#x6301;&#x4EA4;&#x53C9;&#x7F51;&#x683C;&#x98CE;&#x683C;&#x7684;&#x5217;&#x8868;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;&#x7011;&#x5E03;&#x6D41;&#x6216;&#x8005;Pinterest&#x3002;</li>
+<li>GridLayoutManager&#xFF0C;&#x652F;&#x6301;&#x7F51;&#x683C;&#x5C55;&#x793A;&#xFF0C;&#x53EF;&#x4EE5;&#x6C34;&#x5E73;&#x6216;&#x8005;&#x7AD6;&#x76F4;&#x6EDA;&#x52A8;&#xFF0C;&#x5982;&#x5C55;&#x793A;&#x56FE;&#x7247;&#x7684;&#x753B;&#x5ECA;&#x3002;</li>
 </ol>
-<h3 id="recyclerview-&#x548C;-listview-&#x7684;&#x76F8;&#x540C;&#x548C;&#x4E0D;&#x540C;&#x70B9;&#xFF0C;&#x5728;-item-&#x56DE;&#x6536;&#x4E0A;&#x6709;&#x4EC0;&#x4E48;&#x4E0D;&#x540C;&#xFF1B;">RecyclerView &#x548C; ListView &#x7684;&#x76F8;&#x540C;&#x548C;&#x4E0D;&#x540C;&#x70B9;&#xFF0C;&#x5728; item &#x56DE;&#x6536;&#x4E0A;&#x6709;&#x4EC0;&#x4E48;&#x4E0D;&#x540C;&#xFF1B;</h3>
-<p>View &#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x673A;&#x5236;&#xFF1B;</p>
-<h3 id="3window-view-activity&#x4E09;&#x8005;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x8FFD;&#x95EE;acitivty&#x5982;&#x4F55;&#x548C;window&#x5173;&#x8054;">3.Window View Activity&#x4E09;&#x8005;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x8FFD;&#x95EE;Acitivty&#x5982;&#x4F55;&#x548C;Window&#x5173;&#x8054;</h3>
-<p>Android Framework&#x5C42;&#x6709;&#x6CA1;&#x6709;&#x4E86;&#x89E3;&#x8FC7;&#xFF0C;&#x8BF4;&#x8BF4; Window &#x7A97;&#x53E3;&#x6DFB;&#x52A0;&#x7684;&#x8FC7;&#x7A0B;&#xFF1B;</p>
-<h3 id="6&#x81EA;&#x5B9A;&#x4E49;view&#x7684;&#x5177;&#x4F53;&#x8FC7;&#x7A0B;">6.&#x81EA;&#x5B9A;&#x4E49;View&#x7684;&#x5177;&#x4F53;&#x8FC7;&#x7A0B;</h3>
-<h3 id="7onmeasure&#x7684;&#x5177;&#x4F53;&#x8FC7;&#x7A0B;&#xFF0C;&#x5148;measure&#x5B50;view&#x8FD8;&#x662F;&#x81EA;&#x5DF1;">7.onMeasure&#x7684;&#x5177;&#x4F53;&#x8FC7;&#x7A0B;&#xFF0C;&#x5148;measure&#x5B50;view&#x8FD8;&#x662F;&#x81EA;&#x5DF1;</h3>
-<h3 id="8ondraw&#x7684;&#x5177;&#x4F53;&#x8FC7;&#x7A0B;&#xFF0C;&#x5148;draw&#x5B50;view&#x8FD8;&#x662F;&#x81EA;&#x5DF1;">8.onDraw&#x7684;&#x5177;&#x4F53;&#x8FC7;&#x7A0B;&#xFF0C;&#x5148;draw&#x5B50;view&#x8FD8;&#x662F;&#x81EA;&#x5DF1;</h3>
+</li>
+<li>&#x5B9E;&#x73B0;item&#x52A8;&#x753B;&#x66F4;&#x65B9;&#x4FBF;&#xFF0C;RecyclerView.ItemAnimator&#x5219;&#x88AB;&#x63D0;&#x4F9B;&#x7528;&#x4E8E;&#x5728;RecyclerView&#x6DFB;&#x52A0;&#x3001;&#x5220;&#x9664;&#x6216;&#x79FB;&#x52A8;item&#x65F6;&#x5904;&#x7406;&#x52A8;&#x753B;&#x6548;&#x679C;</li>
+<li>RecyclerView.ItemDecoration&#x53EF;&#x4EE5;&#x66F4;&#x4E2A;&#x6027;&#x5316;&#x5730;&#x5B9E;&#x73B0;&#x5206;&#x5272;&#x7EBF;</li>
+</ul>
+<p><a href="https://www.aliyun.com/jiaocheng/47916.html" target="_blank">https://www.aliyun.com/jiaocheng/47916.html</a> </p>
+<p><a href="https://blog.csdn.net/qq_23012315/article/details/50807224" target="_blank">https://blog.csdn.net/qq_23012315/article/details/50807224</a></p>
 <blockquote>
 <p>&#x70ED;&#x70B9;&#x6280;&#x672F;</p>
 </blockquote>
-<h3 id="&#x70ED;&#x4FEE;&#x590D;">.&#x70ED;&#x4FEE;&#x590D;</h3>
-<h3 id="10&#x6A21;&#x5757;&#x5316;">10.&#x6A21;&#x5757;&#x5316;</h3>
-<h3 id="11&#x7EC4;&#x4EF6;&#x5316;&#x7684;&#x539F;&#x7406;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x7EC4;&#x4EF6;&#x5316;&#x5E73;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x95EE;&#x9898;&#xFF1B;">11.&#x7EC4;&#x4EF6;&#x5316;&#x7684;&#x539F;&#x7406;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x7EC4;&#x4EF6;&#x5316;&#x5E73;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x95EE;&#x9898;&#xFF1B;</h3>
-<p>&#x6D88;&#x606F;&#x63A8;&#x9001;&#x6709;&#x6CA1;&#x6709;&#x505A;&#x8FC7;&#xFF0C;&#x63A8;&#x9001;&#x5230;&#x8FBE;&#x7387;&#x7684;&#x95EE;&#x9898;</p>
+<h3 id="1&#x70ED;&#x4FEE;&#x590D;">1.&#x70ED;&#x4FEE;&#x590D;</h3>
+<p><a href="https://www.jianshu.com/p/704cac3eb13d" target="_blank">https://www.jianshu.com/p/704cac3eb13d</a></p>
+<h3 id="2&#x63D2;&#x4EF6;&#x5316;">2.&#x63D2;&#x4EF6;&#x5316;</h3>
+<h3 id="3&#x6A21;&#x5757;&#x5316;&#x7EC4;&#x4EF6;&#x5316;&#x7684;&#x539F;&#x7406;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x7EC4;&#x4EF6;&#x5316;&#x5E73;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x95EE;&#x9898;">3.&#x6A21;&#x5757;&#x5316;/&#x7EC4;&#x4EF6;&#x5316;&#x7684;&#x539F;&#x7406;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x7EC4;&#x4EF6;&#x5316;&#x5E73;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x95EE;&#x9898;</h3>
+<h3 id="4&#x6D88;&#x606F;&#x63A8;&#x9001;&#x6709;&#x6CA1;&#x6709;&#x505A;&#x8FC7;&#xFF0C;&#x63A8;&#x9001;&#x5230;&#x8FBE;&#x7387;&#x7684;&#x95EE;&#x9898;">4.&#x6D88;&#x606F;&#x63A8;&#x9001;&#x6709;&#x6CA1;&#x6709;&#x505A;&#x8FC7;&#xFF0C;&#x63A8;&#x9001;&#x5230;&#x8FBE;&#x7387;&#x7684;&#x95EE;&#x9898;</h3>
+<p>&#x9879;&#x76EE;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x63A8;&#x9001;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x7528;&#x7B2C;&#x4E09;&#x65B9;SDK&#xFF0C;&#x5F53;&#x7136;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x5199;&#x4E00;&#x4E2A;&#x5FC3;&#x8DF3;&#x3002;</p>
+<p>&#x81F3;&#x4E8E;&#x63A8;&#x9001;&#x5230;&#x8FBE;&#x7387;&#xFF0C;&#x6D77;&#x5916;&#x7684;&#x8BDD;&#xFF0C;&#x4F7F;&#x7528;Firebase&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x56FD;&#x5185;&#x7684;&#x8BDD;&#xFF0C;&#x53EA;&#x80FD;&#x5BC4;&#x5E0C;&#x671B;&#x4E8E;&#x7B2C;&#x4E09;&#x65B9;SDK&#x7684;&#x7B56;&#x7565;&#xFF0C;&#x81EA;&#x5DF1;&#x642D;&#x5EFA;&#x63A8;&#x9001;&#x670D;&#x52A1;&#xFF0C;&#x6210;&#x672C;&#x9AD8;&#xFF0C;&#x4E14;&#x5230;&#x8FBE;&#x7387;&#x4E0D;&#x6613;&#x63A7;&#x5236;&#x3002;&#x5230;&#x8FBE;&#x7387;&#x8BF4;&#x767D;&#x4E86;&#x6839;&#x672C;&#x8FD8;&#x662F;&#x8FDB;&#x7A0B;&#x4FDD;&#x6D3B;&#xFF0C;JobScheduler&#x53EF;&#x4EE5;&#x505A;&#x4E00;&#x4E9B;&#x540E;&#x53F0;&#x4EFB;&#x52A1;&#x3002;</p>
 <blockquote>
 <p>&#x67B6;&#x6784;</p>
 </blockquote>
-<p>&#x8BF4;&#x8BF4; apk &#x6253;&#x5305;&#x6D41;&#x7A0B;&#x4EE5;&#x53CA;&#x591A;&#x6E20;&#x9053;&#x6253;&#x5305;&#xFF1B;</p>
-<h3 id="mvc-mvp-mvvm&#x7684;&#x7406;&#x89E3;">MVC MVP MVVM&#x7684;&#x7406;&#x89E3;</h3>
-<h3 id="&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5D29;&#x6E83;&#x7EDF;&#x8BA1;&#x4EE5;&#x53CA;&#x6570;&#x636E;&#x5206;&#x6790;">&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5D29;&#x6E83;&#x7EDF;&#x8BA1;&#x4EE5;&#x53CA;&#x6570;&#x636E;&#x5206;&#x6790;</h3>
+<h3 id="1&#x8BF4;&#x8BF4;-apk-&#x6253;&#x5305;&#x6D41;&#x7A0B;&#x4EE5;&#x53CA;&#x591A;&#x6E20;&#x9053;&#x6253;&#x5305;">1.&#x8BF4;&#x8BF4; apk &#x6253;&#x5305;&#x6D41;&#x7A0B;&#x4EE5;&#x53CA;&#x591A;&#x6E20;&#x9053;&#x6253;&#x5305;</h3>
+<p>&#x591A;&#x6E20;&#x9053;&#x6253;&#x5305;&#x8FD9;&#x4E2A;&#x975E;&#x5E38;easy&#x4E86;&#xFF0C;&#x91CD;&#x70B9;&#x8BF4;&#x4E00;&#x4E0B;APK&#x7684;&#x7ED3;&#x6784;&#x548C;&#x6253;&#x5305;&#x6D41;&#x7A0B;
+<a href="https://www.jianshu.com/p/7c288a17cda8" target="_blank">https://www.jianshu.com/p/7c288a17cda8</a></p>
+<p><img src="../img/apk_structure.png" alt="APK&#x7ED3;&#x6784;">
+<img src="../img/apk_tool.png" alt="&#x6253;&#x5305;&#x6D41;&#x7A0B;"></p>
+<h3 id="2mvc-mvp-mvvm&#x7684;&#x7406;&#x89E3;">2.MVC MVP MVVM&#x7684;&#x7406;&#x89E3;</h3>
+<h3 id="3&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5D29;&#x6E83;&#x7EDF;&#x8BA1;&#x4EE5;&#x53CA;&#x6570;&#x636E;&#x5206;&#x6790;">3.&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5D29;&#x6E83;&#x7EDF;&#x8BA1;&#x4EE5;&#x53CA;&#x6570;&#x636E;&#x5206;&#x6790;</h3>
 <h2 id="&#x5F00;&#x6E90;&#x6846;&#x67B6;">&#x5F00;&#x6E90;&#x6846;&#x67B6;</h2>
 <h3 id="1-okhttp-&#x8D23;&#x4EFB;&#x94FE;&#x6A21;&#x5F0F;">1. OKHttp &#x8D23;&#x4EFB;&#x94FE;&#x6A21;&#x5F0F;</h3>
 <h3 id="2-glide-&#x56FE;&#x7247;&#x52A0;&#x8F7D;&#x7684;&#x4E09;&#x7EA7;&#x7F13;&#x5B58;&#x673A;&#x5236;-&#x4EE5;&#x53CA;-bitmap-&#x4F18;&#x5316;">2. Glide &#x56FE;&#x7247;&#x52A0;&#x8F7D;&#x7684;&#x4E09;&#x7EA7;&#x7F13;&#x5B58;&#x673A;&#x5236; &#x4EE5;&#x53CA; Bitmap &#x4F18;&#x5316;</h3>
 <h3 id="3-rxjava-flatmap&#x548C;map&#x7684;&#x4F5C;&#x7528;">3. RxJava flatMap&#x548C;Map&#x7684;&#x4F5C;&#x7528;</h3>
 <h3 id="4-retrofit">4. Retrofit</h3>
-<h3 id="5&#x4EC0;&#x4E48;&#x662F;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#xFF1F;&#x80FD;&#x8BF4;&#x51E0;&#x4E2A;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x7684;&#x5E93;&#x4E48;&#xFF1F;&#x4F60;&#x4F7F;&#x7528;&#x8FC7;&#x54EA;&#x4E9B;&#xFF1F;">5.&#x4EC0;&#x4E48;&#x662F;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#xFF1F;&#x80FD;&#x8BF4;&#x51E0;&#x4E2A;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x7684;&#x5E93;&#x4E48;&#xFF1F;&#x4F60;&#x4F7F;&#x7528;&#x8FC7;&#x54EA;&#x4E9B;&#xFF1F;</h3>
+<h3 id="5dagger-2-&#x4EC0;&#x4E48;&#x662F;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#xFF1F;&#x80FD;&#x8BF4;&#x51E0;&#x4E2A;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x7684;&#x5E93;&#x4E48;&#xFF1F;&#x4F60;&#x4F7F;&#x7528;&#x8FC7;&#x54EA;&#x4E9B;&#xFF1F;">5.Dagger 2 &#x4EC0;&#x4E48;&#x662F;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#xFF1F;&#x80FD;&#x8BF4;&#x51E0;&#x4E2A;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x7684;&#x5E93;&#x4E48;&#xFF1F;&#x4F60;&#x4F7F;&#x7528;&#x8FC7;&#x54EA;&#x4E9B;&#xFF1F;</h3>
 
                                 
                                 </section>
@@ -384,7 +449,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Android FAQ","level":"1.3","depth":1,"next":{"title":"Kotlin FAQ","level":"1.4","depth":1,"path":"docs/Kotlin_Question_List.md","ref":"docs/Kotlin_Question_List.md","articles":[]},"previous":{"title":"Java FAQ","level":"1.2","depth":1,"path":"docs/Java_Question_List.md","ref":"docs/Java_Question_List.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/Android_Question_List.md","mtime":"2018-07-14T12:11:36.575Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-14T12:31:37.182Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Android FAQ","level":"1.3","depth":1,"next":{"title":"Kotlin FAQ","level":"1.4","depth":1,"path":"docs/Kotlin_Question_List.md","ref":"docs/Kotlin_Question_List.md","articles":[]},"previous":{"title":"Java FAQ","level":"1.2","depth":1,"path":"docs/Java_Question_List.md","ref":"docs/Java_Question_List.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/Android_Question_List.md","mtime":"2018-07-15T14:25:28.523Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-16T20:21:20.635Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
