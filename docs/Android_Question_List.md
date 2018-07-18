@@ -78,7 +78,7 @@ area, default key processing, etc.
 * View 负责实际绘制/显示内容
 * Activity
 
-[Android](http://lib.csdn.net/base/android)中真正展示给用户的是window和view，activity在android中所的作用主要是处理一些逻辑问题，比如生命周期的管理、建立窗口等。在android中，窗口的管理还是比较重要的一块，因为他直接负责把内容展示给用户，并和用户进行交互。响应用户的输入等。 View是真正显示的矩形区域，DecorView是顶层View，也就是主View。 相互之间的关系可以理解为一个Activity包含了一个Window，这个Window其实是一个PhoneWindow，在PhoneWindow中包含了DecorView，变量名称为mDecor，mDecor有一个子View，这个子View的布局方式根据设定的主题来确定，在这个子View的xml布局中包含了一个FrameLayout元素，这个FrameLayout元素的id为content，这个content对应于PhoneWindow中的mContentParent变量，用户自定义的布局作为mContentParent的子View存在,一般情况下mContentParnet只有一个子View，如果在Activity调用addView方式实际上是给PhoneWindow中的mContentParent添加子View，由于mContentParent是一个FrameLayout,因此新的子view会覆盖通过setContentView添加的子view。
+Android中真正展示给用户的是window和view，activity在android中所的作用主要是处理一些逻辑问题，比如生命周期的管理、建立窗口等。在android中，窗口的管理还是比较重要的一块，因为他直接负责把内容展示给用户，并和用户进行交互。响应用户的输入等。 View是真正显示的矩形区域，DecorView是顶层View，也就是主View。 相互之间的关系可以理解为一个Activity包含了一个Window，这个Window其实是一个PhoneWindow，在PhoneWindow中包含了DecorView，变量名称为mDecor，mDecor有一个子View，这个子View的布局方式根据设定的主题来确定，在这个子View的xml布局中包含了一个FrameLayout元素，这个FrameLayout元素的id为content，这个content对应于PhoneWindow中的mContentParent变量，用户自定义的布局作为mContentParent的子View存在,一般情况下mContentParnet只有一个子View，如果在Activity调用addView方式实际上是给PhoneWindow中的mContentParent添加子View，由于mContentParent是一个FrameLayout,因此新的子view会覆盖通过setContentView添加的子view。
 
 https://www.cnblogs.com/aademeng/articles/6538926.html
 
@@ -147,6 +147,7 @@ https://www.jianshu.com/p/049df709ddbf
   3. GridLayoutManager，支持网格展示，可以水平或者竖直滚动，如展示图片的画廊。
 * 实现item动画更方便，RecyclerView.ItemAnimator则被提供用于在RecyclerView添加、删除或移动item时处理动画效果
 * RecyclerView.ItemDecoration可以更个性化地实现分割线
+* 将测量和布局过程完全委托给LayoutManager
 
 https://www.aliyun.com/jiaocheng/47916.html 
 
@@ -190,10 +191,34 @@ https://www.jianshu.com/p/7c288a17cda8
 ## 开源框架
 
 ### 1. OKHttp 责任链模式
-### 2. Glide 图片加载的三级缓存机制 以及 Bitmap 优化
-### 3. RxJava flatMap和Map的作用
 
-### 4. Retrofit
+### 2. Retrofit
+
+### 3. Glide 图片加载的三级缓存机制 以及 Bitmap 优化
+
+* 首先是with方法，参数为非Application时，调用的是with(Activity/Fragment)方法；当with方法传入的是Activity或者Fragment时，会创建一个隐藏的Fragment加载到Activity／Fragment上，用于保证Glide加载图片的生命周期和Actiivty／Fragment一致，当退出Activity/Fragment时，图片停止加载。
+
+   
+
+1. with：创建RequestManager，并根据传入参数，初始化好对应的生命周期
+2. load：用于初始化好图片下载、图片解析、图片转换的各个对象，用于后续流程
+3. into：在线程池中去执行EngineRunnale的run方法，用HttpURLConnection下载图片、用BitmapFactory.decodeStream完成解码、然后把Bitmap转换成可统一展示的GlideBitmapDrawable、最后通过Handler发消息，在主线程中给ImageView设置图片
+
+
+
+内存缓存有两级 LruCache/DiskLruCache
+
+
+
+### LinkedHashMap
+
+HashMap和双向链表合二为一即是LinkedHashMap。所谓LinkedHashMap，其落脚点在HashMap，因此更准确地说，它是一个将所有Entry节点链入一个双向链表的HashMap。由于LinkedHashMap是HashMap的子类，所以LinkedHashMap自然会拥有HashMap的所有特性。比如，LinkedHashMap的元素存取过程基本与HashMap基本类似，只是在细节实现上稍有不同。当然，这是由LinkedHashMap本身的特性所决定的，因为它额外维护了一个双向链表用于保持迭代顺序。此外，LinkedHashMap可以很好的支持LRU算法，笔者在第七节便在LinkedHashMap的基础上实现了一个能够很好支持LRU的结构。
+
+### 4. RxJava flatMap和map的作用
+
+map操作符就是对数据源做一个映射，返回的还是一个对象
+
+flatMap操作符是根据数据源，生成一个流，并这个流和当前的流merge合并
 
 ### 5.Dagger 2 什么是依赖注入？能说几个依赖注入的库么？你使用过哪些？
 
