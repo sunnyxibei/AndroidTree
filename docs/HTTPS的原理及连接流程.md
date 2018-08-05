@@ -9,7 +9,7 @@
 
 ### HTTPS概念
 
-* 从解决Http的缺点的角度来看：
+* 从解决HTTP的缺点的角度来看：
 
 HTTP+加密+认证+完整性保护=HTTPS（HTTP Secure）
 
