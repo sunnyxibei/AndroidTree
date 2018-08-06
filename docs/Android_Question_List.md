@@ -22,7 +22,7 @@ onNewIntent，在Activity启动模式为SingleTop/SingleTask时，复用Activity
 
 ### 4.ActivityManagerService
 
-### 5.6.Handler 、MessageQueue 、Looper三者的关系和原理
+### 5.Handler 、MessageQueue 、Looper三者的关系和原理
 
 ![Hadler机制图解](../img/handler.png)
 
