@@ -45,13 +45,33 @@ IntentService，自带HanderThread的轻量级服务，在handleMessage中处理
   - 为啥要多进程？
     1. Android对单个应用所使用的最大内存做了限制。
     2. 在不同的应用之间共享数 据。
+
 - 如何实现多进程？Manifest清单文件中声明process属性
+
 - WebView开发的时候为啥一般会指定独立进程？ 
   - WebView导致的OOM问题
   - Android版本不同，采用了不同的内核，兼容性Crash
   - WebView代码质量，WebView和Native版本不一致，导致Crash
+
 - 最近两年的开发没有使用到AIDL和Binder，知识点记住，面试要能答上来，具体细节可以在使用的时候查询。   
+
 - 详见“跟面试官讲Binder系列”
+
+  ```
+  Binder驱动其实跟硬件没有什么关系，它就是一段运行在内核空间的代码，通过一个叫”/dev/binder”的文件在内核空间和用户空间来回搬数据。
+  
+  它是整个Binder机制的核心。正是通过它，Binder才能实现进程间的通信。
+  
+  因为Server, Client和ServiceManager是运行在用户空间，不同的进程，彼此是不能互相访问的。
+  
+  那么在不同的进程间，要进行数据的传递，只有通过内核空间来传递数据，
+  
+  而只有Binder驱动是工作在内核空间中的。
+  
+  它负责Binder节点的建立，负责Binder在进程间的传递，负责对Binder引用的计数管理，在不同进程间传输数据包等底层操作。
+  ```
+
+  
 
 > Android View体系
 
