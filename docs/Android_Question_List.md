@@ -82,6 +82,12 @@ View的绘制工作是从ViewRoot的performTraversals方法开始，它经过mea
 ![绘制过程](../img/dispatch_draw.jpg)
 ![绘制过程](../img/dispatch_draw_1.jpg)
 
+View的三种测量模式：
+
+* UNSPECIFIED：父容器不对View有任何限制，要多大给多大。
+* EXACTLY： 父容器已经检测出View所需要的精确大小，这个时候View的大小就是SpecSIze所指定的值。他对应于LayoutParams中的match_parent和具体的数值这两种模式。
+* AT_MOST：父容器指定了一个可用大小SpecSize。View的大小不能超过这个值，它对应于LayoutParams的wrap_content。（例如：父布局width或者height设置一个具体值，或者match_parent,子布局设置为wrap_content。此时子布局的最大width或者height就是父布局的width或者height）。使用这种测量模式的View，设置的一定是wrap_content。
+
 ### 2.Window View Activity三者的关系
 
 追问Acitivty如何和Window关联
@@ -172,6 +178,33 @@ https://www.jianshu.com/p/049df709ddbf
 https://www.aliyun.com/jiaocheng/47916.html 
 
 https://blog.csdn.net/qq_23012315/article/details/50807224
+
+### 10. App性能优化
+
+港真，以前的两个公司，对App性能都不是很关注，导致对性能优化居然没有概念。总结一下，分为：
+
+* 内存检测 防止Crash和ANR，Monitor（AndroidStudio自带工具）/Leak Canary
+
+* 卡顿优化 
+
+  * 页面层级过深，
+
+    *  xml布局文件优化，使用ConstraintLayout简化布局层次
+    *  使用ViewStub延迟加载View
+    *  删除控件中的无用属性
+  * 绘制性能优化
+    * 移除xml中多余的背景
+    * 减少过度绘制
+    * 自定义View优化，边缘检测，布局超过屏幕边缘不再绘制。使用 [canvas.clipRect()](https://blog.csdn.net/lovexieyuan520/article/details/50698320) 帮助系统识别那些可见的区域，只有在这个区域内才会被绘制。//这个我真真地没有尝试，应该要自己把有效地rect当作参数传递进去吧，不然系统是无法知道要不要绘制的。
+  * 刷新优化
+    * 减少刷新次数，灵活利用缓存及限时刷新；
+    * 缩小刷新区域，局部刷新，避免多余请求；
+  * 动画优化
+  * 硬件加速？
+
+* 耗电优化
+
+* APK瘦身 Lint工具（代码/布局文件/资源），WebP ，代码混淆
 
 > 热点技术
 
