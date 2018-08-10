@@ -185,9 +185,24 @@ https://blog.csdn.net/qq_23012315/article/details/50807224
 
 * 内存检测 防止Crash和ANR，Monitor（AndroidStudio自带工具）/Leak Canary
 
+  * 一些典型的ANR问题场景
+
+    1 最常见的错误，UI 线程等待其他线程释放某个锁，导致UI线程无法处理用户输入
+    2 游戏中每帧动画都进行了比较耗时的大量计算，导致CPU忙不过来
+    3 Web应用中，网络状态不稳定，而界面在等待网络数据
+    4 UI线程中进行了一些磁盘IO(包括数据库，SD卡等等)的耗时操作
+    5 手机被其他App占用着CPU，自己获取不到足够的CPU时间片
+
+  *  通过ANR日志定位问题
+
+     当ANR发生时，往往通过Logcat和traces文件(目录/data/anr)的相关信息输出来定位问题，主要包括以下几个方面：
+     1 基本信息，包括进程号名，进程号，包名，系统build号，ANR类型等等
+     2 CPU使用信息，包括活跃进程的CPU平均占用率，IO情况等
+     3 线程堆栈信息，所属进程包括发生ANR的进程，其父进程，最近有活动的3个进程等
+
 * 卡顿优化 
 
-  * 页面层级过深，
+  * 页面层级过深
 
     *  xml布局文件优化，使用ConstraintLayout简化布局层次
     *  使用ViewStub延迟加载View
