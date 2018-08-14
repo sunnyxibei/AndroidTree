@@ -238,57 +238,93 @@ Response getResponseWithInterceptorChain() throws IOException {
   }
 ```
 
-该方法中，首先把我们自定义添加的拦截器添加到拦截器集合中，然后添加了一系列的拦截器。
-
 [责任链模式](https://zh.wikipedia.org/wiki/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F)在这个 `Interceptor` 链条中得到了很好的实践（感谢 Stay 一语道破，自愧弗如）。
 
 > 它包含了一些命令对象和一系列的处理对象，每一个处理对象决定它能处理哪些命令对象，它也知道如何将它不能处理的命令对象传递给该链中的下一个处理对象。该模式还描述了往该处理链的末尾添加新的处理对象的方法。
 
-
-
-
-
-## Dispatcher
-
-首先看OkHttpClient，该类的注释说明它是
+接着看RealInterceptorChain.proceed()
 
 ```
-Factory for {@linkplain Call calls}, which can be used to send HTTP requests and read their responses.
-OkHttpClient实现了Call.Factory, WebSocket.Factory这两个接口。同时支持HTTP请求和WebSocket请求。
+ public Response proceed(Request request, StreamAllocation streamAllocation, HttpCodec httpCodec,
+      RealConnection connection) throws IOException {
+    if (index >= interceptors.size()) throw new AssertionError();
+
+    calls++;
+
+    // If we already have a stream, confirm that the incoming request will use it.
+    if (this.httpCodec != null && !this.connection.supportsUrl(request.url())) {
+      throw new IllegalStateException("network interceptor " + interceptors.get(index - 1)
+          + " must retain the same host and port");
+    }
+
+    // If we already have a stream, confirm that this is the only call to chain.proceed().
+    if (this.httpCodec != null && calls > 1) {
+      throw new IllegalStateException("network interceptor " + interceptors.get(index - 1)
+          + " must call proceed() exactly once");
+    }
+
+    // Call the next interceptor in the chain.
+    //这里构造出下一个Interceptor
+    RealInterceptorChain next = new RealInterceptorChain(interceptors, streamAllocation, httpCodec,
+        connection, index + 1, request, call, eventListener, connectTimeout, readTimeout,
+        writeTimeout);
+    Interceptor interceptor = interceptors.get(index);
+    //调用自己的Interceptor方法
+    Response response = interceptor.intercept(next);
+
+    // Confirm that the next interceptor made its required call to chain.proceed().
+    if (httpCodec != null && index + 1 < interceptors.size() && next.calls != 1) {
+      throw new IllegalStateException("network interceptor " + interceptor
+          + " must call proceed() exactly once");
+    }
+
+    // Confirm that the intercepted response isn't null.
+    if (response == null) {
+      throw new NullPointerException("interceptor " + interceptor + " returned null");
+    }
+
+    if (response.body() == null) {
+      throw new IllegalStateException(
+          "interceptor " + interceptor + " returned a response with no body");
+    }
+
+    return response;
+  }
 ```
 
-```
-OkHttpClient()用于创建一个默认参数的Client
-而其内部类OkHttpClient.Builder()用于创建一个自定义参数的Client
-newBuilder()其实相当于一个深拷贝的概念，拷贝和当前相同配置的一个Client，用于一些特殊的请求。通过阅读源码发现，newBuilder返回的Client和原来的Client拥有相同的参数，包括ConnectPoll和
-```
+这个方法时责任链模式的核心，结合上面的代码，Interceptor的调用顺序如下：
 
-通过阅读源码发现，OkHttp支持 HTTP1.1/HTTP2.0/SPDY，支持TLS1.0-1.3，支持WebSocket
+![Interceptor责任链调用顺序](../img/interceptor_chain.png)
 
-但是默认boolean isTLS = false;是关闭的
+CallServerInterceptor位于链路的末端，是具体向服务器发送请求并接受响应的拦截器。
+
+OK，到此为止，我们把OkHttp异步网络请求的流程梳理清楚了。同步请求，相比异步请求，更为简单
 
 ```
-ConnectionSpec这个类提供了HTTPS连接时支持的cipherSuites
-ConnectionSpec提供了三种模式：MODERN_TLS，COMPATIBLE_TLS，CLEARTEXT
+@Override public Response execute() throws IOException {
+    synchronized (this) {
+      if (executed) throw new IllegalStateException("Already Executed");
+      executed = true;
+    }
+    captureCallStackTrace();
+    eventListener.callStart(this);
+    try {
+    //加入runningSyncCalls队列
+      client.dispatcher().executed(this);
+      //同异步请求
+      Response result = getResponseWithInterceptorChain();
+      if (result == null) throw new IOException("Canceled");
+      return result;
+    } catch (IOException e) {
+      eventListener.callFailed(this, e);
+      throw e;
+    } finally {
+      client.dispatcher().finished(this);
+    }
+  }
+  
+   /** Used by {@code Call#execute} to signal it is in-flight. */
+  synchronized void executed(RealCall call) {
+    runningSyncCalls.add(call);
+  }
 ```
-
-```
-所有Intercept onIntercept回调中的Chain实例，都是RealInterceptorChain的实例，是在RealInterceptorChain.proceed()方法中使用构造方法创建出来的，而且，这里的chain指向的是Interceptors中的下一个Interceptor
-这里的处理十分的巧妙
-```
-
-```
-Cookie类是OkHttp对Cookie的封装，提供的数据类，在使用CookieJar的时候，可以直接把自己Cookie的key-value放入Cookie实例中，然后把实例塞给CookieJar
-```
-
-## Interceptors解毒
-
-### RetryAndFollowUpInterceptor
-
-```
-This interceptor recovers from failures and follows redirects as necessary.
-
-这个类的源码读的不是很明白，其中有一个关键点：
-StreamAllocation是从这里构造出来，然后传递给realInterceptor的
-```
-
