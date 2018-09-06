@@ -174,10 +174,36 @@ https://www.jianshu.com/p/049df709ddbf
 * 实现item动画更方便，RecyclerView.ItemAnimator则被提供用于在RecyclerView添加、删除或移动item时处理动画效果
 * RecyclerView.ItemDecoration可以更个性化地实现分割线
 * 将测量和布局过程完全委托给LayoutManager
+* ItemTouchHelper/PagerSnapHelper辅助API实现拖动等定制化效果
 
 https://www.aliyun.com/jiaocheng/47916.html 
 
 https://blog.csdn.net/qq_23012315/article/details/50807224
+
+源码解读
+
+```
+public class RecyclerView extends ViewGroup implements ScrollingView, NestedScrollingChild2 
+类的声明来看，RecyclerView实现了ScrollingView，可以水平/竖直方向滚动，同时还实现了NestedScrollingChild2，支持内部滚动，可以作为NestScrollingParent的子View使用，通过layoutBehavior来限定nestedScroll的响应
+```
+
+核心关键类：
+
+RecyclerView
+
+LayoutManger
+
+Recycler
+
+总结：
+
+* 支持三种布局
+* 支持NestedScrolling
+* 测量布局委托给LayoutManager，专注于Recycler（View的回收和复用）
+
+那些情况下可以直接使用ListView
+
+ListView设计层级比RecyclerView要简单，在列表数据简单，ItemView层级简单，且很少进行刷新操作的时候，完全可以使用ListView实现，RecyclerView会创建Recycler()等内部集合，不太合算。
 
 ### 10. App性能优化
 
