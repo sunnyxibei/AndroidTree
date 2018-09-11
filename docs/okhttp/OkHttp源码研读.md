@@ -6,13 +6,13 @@
 
 首先上图，看OkHttp的设计类图
 
-![OkHttp设计类图](../img/okhttp_struc.png)
+![OkHttp设计类图](../../img/okhttp_struc.png)
 
 
 
 然后是OkHttp的请求流程图，先了解一下
 
-![OkHttp 请求流程](../img/okhttp_full_process.png)
+![OkHttp 请求流程](../../img/okhttp_full_process.png)
 
 ## OkHttpClient
 
@@ -294,7 +294,7 @@ Response getResponseWithInterceptorChain() throws IOException {
 
 这个方法时责任链模式的核心，结合上面的代码，Interceptor的调用顺序如下：
 
-![Interceptor责任链调用顺序](../img/interceptor_chain.png)
+![Interceptor责任链调用顺序](../../img/interceptor_chain.png)
 
 CallServerInterceptor位于链路的末端，是具体向服务器发送请求并接受响应的拦截器。
 
