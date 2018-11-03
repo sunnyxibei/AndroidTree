@@ -67,3 +67,9 @@ HTTP通信阶段
 
 使用SSL时，处理速度会变慢，增加服务器和客户端的负载，非敏感信息可以直接使用HTTP
 
+
+
+[Android安全开发之安全使用HTTPS](https://www.cnblogs.com/alisecurity/p/5939336.html)
+
+
+

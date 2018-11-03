@@ -233,3 +233,37 @@ LinkedHashMap结合Android中的LruCache学习
 
 
 
+# Android 面试之查漏补缺
+
+> 要准备第二次杭州之行了，目的是拿到一个网易|有赞的offer
+
+- ConcurrentHashMap原理
+- CAP原则又称CAP定理，指的是在一个分布式系统中，Consistency（一致性）、 Availability（可用性）、Partition tolerance（分区容错性），三者不可兼得 [1]  。
+
+ConcurrentHashMap的设计与实现非常精巧，大量的利用了volatile，final，CAS等lock-free技术来减少锁竞争对于性能的影响
+
+ConcurrentHashMap采用了分段锁的设计，允许多个修改操作并发进行，其关键在于使用了锁分离技术。它使用了多个锁来控制对hash表的不同部分进行的修改。ConcurrentHashMap内部使用段(Segment)来表示这些不同的部分，每个段其实就是一个小的Hashtable，它们有自己的锁。只要多个修改操作发生在不同的段上，它们就可以并发进行。
+
+HashTable虽然性能上不如ConcurrentHashMap，但并不能完全被取代，两者的迭代器的一致性不同的，HashTable的迭代器是强一致性的，而ConcurrentHashMap是弱一致的。 ConcurrentHashMap的get，clear，iterator 都是弱一致性的。 Doug Lea 也将这个判断留给用户自己决定是否使用ConcurrentHashMap。
+
+## 顺便罗列一下目前我能想到的问题
+
+* ARouter路由框架的原理
+* Retrofit的原理
+* 组件之间跨进程通信/跳转问题解决方案 aidl/binder直接把多个Map合并共同调度
+
+[组件化之跨进程一](https://www.jianshu.com/p/1fc5f8a2d703)
+
+[组件化之跨进程二](http://blog.spinytech.com/2016/12/28/android_modularization/)
+
+* JDK1.6之后对synchronized锁机制的优化
+
+[synchronized](http://www.importnew.com/23511.html)
+
+锁主要存在四中状态，依次是：无锁状态、偏向锁状态、轻量级锁状态、重量级锁状态，他们会随着竞争的激烈而逐渐升级。注意锁可以升级不可降级，这种策略是为了提高获得锁和释放锁的效率。
+
+- 死锁的四个必要条件？
+
+- 怎么避免死锁？**锁的申请就没有发生交叉**
+
+  在涉及到要同时申请两个锁的方法中，总是以相同的顺序来申请锁，比如总是先申请 id 大的账户上的锁 ，然后再申请 id 小的账户上的锁，这样就无法形成导致死锁的那个闭环。

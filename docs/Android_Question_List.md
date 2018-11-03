@@ -38,6 +38,8 @@ IntentService，自带HanderThread的轻量级服务，在handleMessage中处理
 
 ### 7.IPC通信机制
 
+android首选进程通讯机制（IPC），android是建立在linux kernel之上的所以他支持linux的IPC方式，例如：网络链接进程通讯（Internet Process Connection）：管道（Pipe），信号（Signal）和跟踪（Trace），插口（Socket），报文队列（Message），共享内存（Share Memory）和信号量（Semaphore）。那么为什么还要出现binder机制那是因为它是针对移动端这种时效性快，资源消耗低而设计出来了，是移动端首选的进程通讯方式。从binder应用的范围就知道他重要性，除了Zygote进程和SystemServer进程之间使用的socket通讯之外，基本上其他进程通讯都是用的binder方式。
+
 1. Android进程间通信（IPC）的实现方式：Bundle，文件共享，AIDL，Messenger，ContentProvider，Socket，BroadCastReceiver
 2. Android进程间通信（IPC）的机制：Binder Parcelable（此处不在叙述Serializable）Parcelable接口在完成数据的序列化过程之后，通过Binder进行传输。实质上Parcelable包含序列化和反序列化
 
@@ -71,7 +73,6 @@ IntentService，自带HanderThread的轻量级服务，在handleMessage中处理
   它负责Binder节点的建立，负责Binder在进程间的传递，负责对Binder引用的计数管理，在不同进程间传输数据包等底层操作。
   ```
 
-  
 
 > Android View体系
 
@@ -325,5 +326,8 @@ flatMap操作符是根据数据源，生成一个流，并这个流和当前的�
 
 ### 5.Dagger 2 什么是依赖注入？能说几个依赖注入的库么？你使用过哪些？
 
+### 6.线程和进程概念上的不同？多线程以及多进程使用的场景？
 
-
+* 多进程的有点及使用场景
+  * Android对单个进程有内存限制，超过上限后会oom
+  * 一个进程出现异常crash后，不会对主进程产生影响
